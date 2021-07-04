@@ -29,7 +29,7 @@ for cve in lastcve:
     for cpe in cve["vulnerable_product"]:
         print("# {0}".format(cpe))
 
-    # check for dupplicate CVE
+    # check for duplicate CVE
     sql_checkcve = "SELECT * FROM cve WHERE cveid = '{0}' AND date_modified = '{1}'".format(cve["id"], cve["Modified"])
     cursor.execute(sql_checkcve)
     cveindb = cursor.rowcount
