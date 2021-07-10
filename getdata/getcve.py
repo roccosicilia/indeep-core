@@ -6,9 +6,11 @@ import psycopg2
 # config file
 static = json.load(open("./config.json"))
 
+# DB connection
 connection = psycopg2.connect(user=static["db_user"], password=static["db_password"], host=static["db_host"], port=static["db_port"], database=static["db_name"])
 cursor = connection.cursor()
 
+# get data from CIRCL
 url = "https://cve.circl.lu/api/last"
 response = urlopen(url)
 lastcve = json.loads(response.read())
