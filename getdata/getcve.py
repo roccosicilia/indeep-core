@@ -3,7 +3,10 @@ from urllib.request import urlopen
 import json
 import psycopg2
 
-connection = psycopg2.connect(user="myuser", password="mypassword", host="localhost", port="5432", database="indeep")
+# config file
+static = json.load(open("./config.json"))
+
+connection = psycopg2.connect(user=static["db_user"], password=static["db_password"], host=static["db_host"], port=static["db_port"], database=static["db_name"])
 cursor = connection.cursor()
 
 url = "https://cve.circl.lu/api/last"
