@@ -34,18 +34,16 @@ for cve in lastcve:
     
     print("##################################################")
     print("# Get data for CVE id {0} published {1}, modified {2}.".format(cve["id"], cve["Published"], cve["Modified"]))
-    
-    print("#")
     print("# CVSS score: {0}".format(cve["cvss"]))
-    
-    print("#")
+
     cpenum = len(cve["vulnerable_product"])
     cpe_list = ",".join(cve["vulnerable_product"])
     for cpe in cve["vulnerable_product"]:
         print("# {0}".format(cpe))
 
     # check for duplicate CVE
-    sql_checkcve = "SELECT * FROM cve WHERE cve_id = '{0}' AND date_modified = '{1}'".format(cve["id"], cve["Modified"])
+    # sql_checkcve = "SELECT * FROM cve WHERE cve_id = '{0}' AND date_modified = '{1}'".format(cve["id"], cve["Modified"])
+    sql_checkcve = "SELECT * FROM cve WHERE cve_id = '{0}'".format(cve["id"])
     cursor.execute(sql_checkcve)
 
     if cursor.rowcount == 0:
