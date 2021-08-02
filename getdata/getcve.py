@@ -42,8 +42,12 @@ for cve in lastcve:
         print("# {0}".format(cpe))
 
     # check for duplicate CVE
-    # sql_checkcve = "SELECT * FROM cve WHERE cve_id = '{0}' AND date_modified = '{1}'".format(cve["id"], cve["Modified"])
-    sql_checkcve = "SELECT * FROM cve WHERE cve_id = '{0}'".format(cve["id"])
+    sql_checkcve = "SELECT * FROM cve WHERE cve_id = '{0}' AND date_modified = '{1}'".format(cve["id"], cve["Modified"])
+
+    #### DEBUG
+    print(sql_checkcve)
+    #### DEBUG
+
     cursor.execute(sql_checkcve)
 
     if cursor.rowcount == 0:
