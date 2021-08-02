@@ -12,7 +12,7 @@ static = json.load(open("./config.json"))
 
 # DB connection MYSQL
 connection = mysql.connector.connect(host=static["db_host"], user=static["db_user"], password=static["db_password"], database=static["db_name"])
-cursor = mydb.cursor()
+cursor = connection.cursor()
 
 # DB connection PGSQL
 # connection = psycopg2.connect(user=static["db_user"], password=static["db_password"], host=static["db_host"], port=static["db_port"], database=static["db_name"])
