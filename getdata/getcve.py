@@ -5,14 +5,18 @@
 
 from urllib.request import urlopen
 import json
-import psycopg2
+import mysql.connector
 
 # config file
 static = json.load(open("./config.json"))
 
-# DB connection
-connection = psycopg2.connect(user=static["db_user"], password=static["db_password"], host=static["db_host"], port=static["db_port"], database=static["db_name"])
-cursor = connection.cursor()
+# DB connection MYSQL
+connection = mysql.connector.connect(host=static["db_host"], user=static["db_user"], password=static["db_password"], database=static["db_name"])
+cursor = mydb.cursor()
+
+# DB connection PGSQL
+# connection = psycopg2.connect(user=static["db_user"], password=static["db_password"], host=static["db_host"], port=static["db_port"], database=static["db_name"])
+# cursor = connection.cursor()
 
 # get data from CIRCL
 url = "https://cve.circl.lu/api/last"
