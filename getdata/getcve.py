@@ -1,3 +1,7 @@
+#
+# File: getcve.py
+# Author: Rocco Sicilia (aka: Sheliak)
+#
 
 from urllib.request import urlopen
 import json
@@ -19,6 +23,8 @@ cvenum = len(lastcve)
 print("##################################################")
 print("# There are {0} CVE in this list.".format(cvenum))
 print("#")
+
+i = 0 # cve counter
 
 for cve in lastcve:
     
@@ -44,5 +50,13 @@ for cve in lastcve:
         cursor.execute(sql_addcve)
         connection.commit()
         print("# Add CVE in DB.")
+        ++i
     else:
         print("# CVE skipped")
+
+
+print("##################################################")
+print("#")
+print("# Add {0} CVE".format(i))
+print("#")
+print("##################################################\n")
