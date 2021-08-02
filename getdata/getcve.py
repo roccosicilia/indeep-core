@@ -3,7 +3,7 @@
 # Author: Rocco Sicilia (aka: Sheliak)
 #
 
-from urllib.request import urlopen
+from urllib import urlopen
 import json
 import mysql.connector
 
