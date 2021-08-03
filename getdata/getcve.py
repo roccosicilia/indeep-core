@@ -42,12 +42,12 @@ for cve in lastcve:
         print("# {0}".format(cpe))
 
     # check for duplicate CVE
-    sql_checkcve = "SELECT * FROM cve WHERE cve_id = '{0}' AND date_modified = '{1}'".format(cve["id"], cve["Modified"])
-    cursor.execute(sql_checkcve)
+    sql_checkcve = "SELECT COUNT(*) FROM cve WHERE cve_id = '{0}' AND date_modified = '{1}'".format(cve["id"], cve["Modified"])
+    num_items = cursor.fetchone()
 
-    print("DEBUG: {0}".format(cursor.rowcount))
+    print("DEBUG: {0}".format(num_items))
 
-    if cursor.rowcount == 0:
+    if num_items == 0:
         sql_addcve = "INSERT INTO cve (cve_id, cvss, date_modified, date_published, cpe_list) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')".format(cve["id"], cve["cvss"], cve["Modified"], cve["Published"], cpe_list)
         cursor.execute(sql_addcve)
         connection.commit()
