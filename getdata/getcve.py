@@ -28,8 +28,6 @@ print("##################################################")
 print("# There are {0} CVE in this list.".format(cvenum))
 print("#")
 
-i = 0 # cve counter
-
 for cve in lastcve:
     
     print("##################################################")
@@ -42,10 +40,10 @@ for cve in lastcve:
         print("# {0}".format(cpe))
 
     # check for duplicate CVE
-    sql_checkcve = "SELECT COUNT(*) FROM cve WHERE cve_id = '{0}' AND date_modified = '{1}'".format(cve["id"], cve["Modified"])
+    sql_checkcve = "SELECT * FROM cve WHERE cve_id = '{0}' AND date_modified = '{1}'".format(cve["id"], cve["Modified"])
     num_items = cursor.fetchone()
 
-    print("DEBUG: {0}".format(num_items))
+    print("# [DEBUG] CVE in DB? {0}".format(num_items))
 
     if num_items == 0 or num_items == None:
         sql_addcve = "INSERT INTO cve (cve_id, cvss, date_modified, date_published, cpe_list) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')".format(cve["id"], cve["cvss"], cve["Modified"], cve["Published"], cpe_list)
@@ -55,10 +53,3 @@ for cve in lastcve:
         ++i
     else:
         print("# CVE skipped")
-
-
-print("##################################################")
-print("#")
-print("# Add {0} CVE".format(i))
-print("#")
-print("##################################################\n")
