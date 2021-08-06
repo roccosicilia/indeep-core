@@ -41,6 +41,7 @@ for cve in lastcve:
 
     # check for duplicate CVE
     sql_checkcve = "SELECT COUNT(*) FROM cve WHERE cve_id = '{0}' AND date_modified = '{1}'".format(cve["id"], cve["Modified"])
+    cursor.execute(sql_checkcve)
     num_items = cursor.fetchone()
 
     print("# [DEBUG] CVE in DB? {0}".format(num_items[0]))
