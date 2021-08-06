@@ -46,7 +46,7 @@ for cve in lastcve:
 
     print("# [DEBUG] CVE in DB? {0}".format(num_items[0]))
 
-    if num_items == 0 or num_items == None:
+    if num_items == 0:
         sql_addcve = "INSERT INTO cve (cve_id, cvss, date_modified, date_published, cpe_list) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')".format(cve["id"], cve["cvss"], cve["Modified"], cve["Published"], cpe_list)
         cursor.execute(sql_addcve)
         connection.commit()
