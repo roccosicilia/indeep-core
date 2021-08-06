@@ -50,6 +50,5 @@ for cve in lastcve:
         cursor.execute(sql_addcve)
         connection.commit()
         print("# Add CVE in DB.")
-        ++i
     else:
         print("# CVE skipped")
