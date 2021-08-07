@@ -7,7 +7,8 @@ include("./functions.inc.php");
 if (!isset($session["username"]) AND isset($_POST["login_email"]) AND isset($_POST["login_password"]))
 {
     $username = addslashes(stripslashes($_POST["login_email"]));
-    $res = mysqli_query($dbconn, "SELECT * FROM users WHERE username = '" . $username . "' ORDER BY id");
+    $sql = "SELECT * FROM users WHERE `username` = '" . $username . "' ORDER BY id";
+    $res = mysqli_query($dbconn, $sql);
     $arr = mysqli_fetch_assoc($res);
 
     print_r($arr);
