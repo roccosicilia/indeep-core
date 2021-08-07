@@ -58,14 +58,14 @@ function tmpl_login($title)
     echo "<h6 class=\"fw-light\">Sign in to continue.</h6>\n";
     echo "<form action=\"./signin.php\" method=\"POST\">\n";
     echo "<div class=\"form-group\">\n";
-    echo "<input type=\"text\" class=\"form-control form-control-lg\" id=\"login_email\" placeholder=\"Username\">\n";
+    echo "<input type=\"text\" class=\"form-control form-control-lg\" id=\"login_email\" name=\"login_email\" placeholder=\"Username\">\n";
     echo "</div>\n";
     echo "<div class=\"form-group\">\n";
-    echo "<input type=\"password\" class=\"form-control form-control-lg\" id=\"login_password\" placeholder=\"Password\">\n";
+    echo "<input type=\"password\" class=\"form-control form-control-lg\" id=\"login_password\" name=\"login_password\" placeholder=\"Password\">\n";
     echo "</div>\n";
     echo "<div class=\"mt-3\">\n";
     // echo "<a class=\"btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn\" href=\"./index.html\">SIGN IN</a>\n";
-    echo "<input type=\"submit\" value=\"SignIn\" class=\"btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn\">\n";
+    echo "<input type=\"submit\" value=\"Sign In\" class=\"btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn\">\n";
     echo "</div>\n";
     echo "<div class=\"my-2 d-flex justify-content-between align-items-center\">\n";
     echo "<div class=\"form-check\">\n";
