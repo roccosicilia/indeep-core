@@ -3,7 +3,6 @@
 // DB connection
 $dbconn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-
 function session_check($pagename)
 {
     session_start();
