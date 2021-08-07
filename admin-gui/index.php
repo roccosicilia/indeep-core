@@ -2,6 +2,6 @@
 
 include("./functions.inc.php");
 
-head("PROVA");
+tmpl_head("PROVA");
 
 ?>
