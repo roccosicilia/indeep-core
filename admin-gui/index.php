@@ -6,7 +6,7 @@ include("./functions.inc.php");
 session_check();
 
 // session check
-if (!isset($session["username"]))
+if (!isset($_SESSION["username"]))
 {
     header("location: ./login.php");
 }

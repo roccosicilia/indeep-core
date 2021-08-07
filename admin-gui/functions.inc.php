@@ -6,15 +6,6 @@ $dbconn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 function session_check()
 {
     session_start();
-    
-    if ($_SESSION["username"] != null)
-    {
-        $username = $_SESSION["username"];
-    }
-    else
-    {
-        $username = "guest";
-    }
 }
 
 function tmpl_login($title)

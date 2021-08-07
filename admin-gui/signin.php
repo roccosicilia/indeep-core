@@ -33,7 +33,7 @@ if (!isset($_SESSION["username"]) AND isset($_POST["login_email"]) AND isset($_P
 }
 else
 {
-    echo "Session active for user " . $session["username"] . "\n";
+    echo "Session active for user " . $_SESSION["username"] . "\n";
 }
 
 ?>
