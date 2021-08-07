@@ -65,9 +65,7 @@ function tmpl_login($title)
     echo "</div>\n";
     echo "<div class=\"mt-3\">\n";
     // echo "<a class=\"btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn\" href=\"./index.html\">SIGN IN</a>\n";
-    echo "<button type=\"button\" class=\"btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn\">\n";
-    echo "<i class=\"text-primary\"></i>Sign In\n";
-    echo "</button>\n";
+    echo "<input type=\"button\" value=\"SignIn\" class=\"btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn\">\n";
     echo "</div>\n";
     echo "<div class=\"my-2 d-flex justify-content-between align-items-center\">\n";
     echo "<div class=\"form-check\">\n";
