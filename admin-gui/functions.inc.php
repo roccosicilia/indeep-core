@@ -1,5 +1,8 @@
 <?php
 
+// DB connection
+$dbconn = pg_connect("host=$dbhost port=5432 dbname=$dbname user=$dbuser password=$dbpass");
+
 function session_check($pagename)
 {
     session_start();
@@ -49,11 +52,11 @@ function tmpl_login($title)
     echo "<div class=\"col-lg-4 mx-auto\">\n";
     echo "<div class=\"auth-form-light text-left py-5 px-4 px-sm-5\">\n";
     echo "<div class=\"brand-logo\">\n";
-    echo "<img src=\"./images/logo.svg\" alt=\"logo\">\n";
+    // echo "<img src=\"./images/logo.svg\" alt=\"logo\">\n";
     echo "</div>\n";
     echo "<h4>Login Page</h4>\n";
     echo "<h6 class=\"fw-light\">Sign in to continue.</h6>\n";
-    echo "<form action=\"./login.php\" method=\"post\" class=\"pt-3\">\n";
+    echo "<form action=\"./signin.php\" method=\"POST\" class=\"pt-3\">\n";
     echo "<div class=\"form-group\">\n";
     echo "<input type=\"email\" class=\"form-control form-control-lg\" id=\"login_email\" placeholder=\"Username\">\n";
     echo "</div>\n";
@@ -63,7 +66,7 @@ function tmpl_login($title)
     echo "<div class=\"mt-3\">\n";
     // echo "<a class=\"btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn\" href=\"./index.html\">SIGN IN</a>\n";
     echo "<button type=\"button\" class=\"btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn\">\n";
-    echo "<i class=\"ti-facebook me-2\"></i>Sign In\n";
+    echo "<i class=\"text-primary\"></i>Sign In\n";
     echo "</button>\n";
     echo "</div>\n";
     echo "<div class=\"my-2 d-flex justify-content-between align-items-center\">\n";
