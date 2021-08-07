@@ -11,6 +11,8 @@ if (!isset($session["username"]))
 
 tmpl_head($config_title);
 
+echo "INDEX";
+
 
 
 ?>

@@ -17,12 +17,15 @@ if (!isset($session["username"]) AND isset($_POST["login_email"]) AND isset($_PO
     if ($verify_token)
     {
         echo "Welcome, " . $arr["username"];
+        session_register($username);
+        $sql = "UPDATE users SET `lastlogin` = '" . time() . "' WHERE `id` = '" . $arr['id'] . "'";
+        $res = mysqli_query($dbconn, $sql);
+        header("location: ./index.php");
     }
     else
     {
         echo "Access Denied.<br />\n";
-        echo $username . "<br />\n";
-        echo $password . "<br />\n";
+        header("location: ./login.php");
     }
 
 }
