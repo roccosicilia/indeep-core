@@ -18,7 +18,9 @@ if (!isset($session["username"]) AND isset($_POST["login_email"]) AND isset($_PO
     }
     else
     {
-        echo "Access Denied.";
+        echo "Access Denied.<br />\n";
+        echo $username . "<br />\n";
+        echo $password . "<br />\n";
     }
 
 }
