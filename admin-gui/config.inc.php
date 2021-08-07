@@ -7,6 +7,6 @@ $config_title = "InDeep";
 $dbhost = "localhost";
 $dbname = "indeep";
 $dbuser = "myuser";     // changeme
-$dbpass = "mypass";     // changeme
+$dbpass = "mypassword"; // changeme
 
 ?>
