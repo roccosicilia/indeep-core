@@ -1,7 +1,8 @@
 <?php
 
 // DB connection
-$dbconn = pg_connect("host=$dbhost port=5432 dbname=$dbname user=$dbuser password=$dbpass");
+$dbconn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+
 
 function session_check($pagename)
 {
