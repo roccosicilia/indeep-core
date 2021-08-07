@@ -1,5 +1,22 @@
 <?php
 
+function session_check($pagename)
+{
+    session_start();
+    
+    if ($_SESSION["username"] != null)
+    {
+        $username = $_SESSION["username"];
+    }
+    else
+    {
+        $username = "guest";
+    }
+
+    $visited_page = $pagename;
+    $visited_time = now();
+}
+
 function tmpl_head($title)
 {
     echo "<!DOCTYPE html>\n";

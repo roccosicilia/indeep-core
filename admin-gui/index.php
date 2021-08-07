@@ -1,7 +1,16 @@
 <?php
 
 include("./functions.inc.php");
+include("./config.inc.php");
 
-tmpl_head("PROVA");
+// session check
+if (!isset($session["username"]))
+{
+    header("location: ./login.php");
+}
+
+tmpl_head($config_title);
+
+
 
 ?>
