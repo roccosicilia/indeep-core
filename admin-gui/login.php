@@ -6,13 +6,13 @@ include("./functions.inc.php");
 session_check();
 
 // session check
-if (!isset($session["username"]))
+if (!isset($_SESSION["username"]))
 {
     tmpl_login($config_title);
 }
 else
 {
-    echo "Session active for user " . $session["username"] . "\n";
+    echo "Session active for user " . $_SESSION["username"] . "\n";
 }
 
 ?>
