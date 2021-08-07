@@ -3,6 +3,8 @@
 include("./config.inc.php");
 include("./functions.inc.php");
 
+session_check();
+
 // session check
 if (!isset($_SESSION["username"]) AND isset($_POST["login_email"]) AND isset($_POST["login_password"]))
 {

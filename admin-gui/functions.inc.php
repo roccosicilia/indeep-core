@@ -3,7 +3,7 @@
 // DB connection
 $dbconn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-function session_check($pagename)
+function session_check()
 {
     session_start();
     
@@ -15,9 +15,6 @@ function session_check($pagename)
     {
         $username = "guest";
     }
-
-    $visited_page = $pagename;
-    $visited_time = now();
 }
 
 function tmpl_login($title)
