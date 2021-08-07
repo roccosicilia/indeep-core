@@ -56,9 +56,9 @@ function tmpl_login($title)
     echo "</div>\n";
     echo "<h4>Login Page</h4>\n";
     echo "<h6 class=\"fw-light\">Sign in to continue.</h6>\n";
-    echo "<form action=\"./signin.php\" method=\"POST\" class=\"pt-3\">\n";
+    echo "<form action=\"./signin.php\" method=\"POST\">\n";
     echo "<div class=\"form-group\">\n";
-    echo "<input type=\"email\" class=\"form-control form-control-lg\" id=\"login_email\" placeholder=\"Username\">\n";
+    echo "<input type=\"text\" class=\"form-control form-control-lg\" id=\"login_email\" placeholder=\"Username\">\n";
     echo "</div>\n";
     echo "<div class=\"form-group\">\n";
     echo "<input type=\"password\" class=\"form-control form-control-lg\" id=\"login_password\" placeholder=\"Password\">\n";
