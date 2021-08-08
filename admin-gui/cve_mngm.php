@@ -17,7 +17,7 @@ tmpl_sidebar();
 tmpl_body();
 
 
-// CVE list CVSS >= 9 (last 5, table format)
+// CVE list CVSS >= 9 (last 15, table format)
 
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
@@ -38,7 +38,7 @@ echo "</tr>\n";
 echo "</thead>\n";
 echo "<tbody>\n";
 
-$sql = "SELECT * FROM `cve` WHERE `cvss` >= 7 ORDER BY `id` DESC LIMIT 10";
+$sql = "SELECT * FROM `cve` WHERE `cvss` >= 7 ORDER BY `id`,`cvss` DESC LIMIT 15";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
