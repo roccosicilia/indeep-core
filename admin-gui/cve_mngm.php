@@ -12,7 +12,7 @@ if (!isset($_SESSION["username"]))
 }
 
 tmpl_head($config_title);
-tmpl_nav($_SESSION["username"]);
+tmpl_nav($_SESSION["username"], "CVE Management");
 tmpl_sidebar();
 tmpl_body();
 
@@ -21,7 +21,7 @@ tmpl_body();
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
 echo "<div class=\"card-body\">\n";
-echo "<h4 class=\"card-title\">Last CVE :: CVSS &gt= 9 </h4>\n";
+echo "<h4 class=\"card-title\">Last CVE (CVSS &gt= 9) </h4>\n";
 echo "<div class=\"table-responsive\">\n";
 echo "<table class=\"table table-striped\">\n";
 
@@ -67,7 +67,7 @@ echo "</div>\n";
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
 echo "<div class=\"card-body\">\n";
-echo "<h4 class=\"card-title\">Last CVE :: CVSS &gt= 7 </h4>\n";
+echo "<h4 class=\"card-title\">Last CVE (CVSS &gt= 7) </h4>\n";
 echo "<div class=\"table-responsive\">\n";
 echo "<table class=\"table table-striped\">\n";
 

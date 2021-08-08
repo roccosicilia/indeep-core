@@ -12,7 +12,7 @@ if (!isset($_SESSION["username"]))
 }
 
 tmpl_head($config_title);
-tmpl_nav($_SESSION["username"]);
+tmpl_nav($_SESSION["username"], "Dashboard");
 tmpl_sidebar();
 tmpl_body();
 

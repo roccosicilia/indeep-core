@@ -127,7 +127,7 @@ function tmpl_head($title)
     echo "</head>\n";
 }
 
-function tmpl_nav($username)
+function tmpl_nav($username, $page)
 {
     echo "<body>\n";
     echo "<div class=\"container-scroller\">\n";
@@ -151,8 +151,8 @@ function tmpl_nav($username)
     echo "<div class=\"navbar-menu-wrapper d-flex align-items-top\">\n";
     echo "<ul class=\"navbar-nav\">\n";
     echo "<li class=\"nav-item font-weight-semibold d-none d-lg-block ms-0\">\n";
-    echo "<h1 class=\"welcome-text\">Good Morning, <span class=\"text-black fw-bold\">$username</span></h1>\n";
-    echo "<h3 class=\"welcome-sub-text\">Your stat summary for last mouth</h3>\n";
+    echo "<h1 class=\"welcome-text\">Hi, <span class=\"text-black fw-bold\">$username</span></h1>\n";
+    echo "<h3 class=\"welcome-sub-text\">You are now in $page</h3>\n";
     echo "</li>\n";
     echo "</ul>\n";
 
