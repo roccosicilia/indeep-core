@@ -48,7 +48,7 @@ while ($arr = mysqli_fetch_assoc($res))
     echo "<td> " . $arr["cve_id"] . " </td>\n";
     echo "<td> " . $arr["date_published"] . " </td>\n"; 
     echo "<td> " . $arr["date_modified"] . " </td>\n";
-    echo "<td> <div class=\"progress\"><div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 25%\" aria-valuenow=\"" . $cvss_score . "\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div></div> </td>\n";
+    echo "<td> <div class=\"progress\"><div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 25%\" aria-valuenow=\"" . $arr["cvss"]*10 . "\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div></div> </td>\n";
     echo "<td> " . $arr["cvss"]*10 . " </td>\n";
     echo "</tr>\n";
 }
