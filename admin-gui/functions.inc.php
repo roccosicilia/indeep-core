@@ -123,7 +123,7 @@ function tmpl_head($title)
     echo "<!-- inject:css -->\n";
     echo "<link rel=\"stylesheet\" href=\"css/vertical-layout-light/style.css\">\n";
     echo "<!-- endinject -->\n";
-    echo "<link rel=\"shortcut icon\" href=\"images/favicon.png\" />\n";
+    echo "<link rel=\"shortcut icon\" href=\"images/sheliak_favicon.jpg\" />\n";
     echo "</head>\n";
 }
 
