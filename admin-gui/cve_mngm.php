@@ -35,7 +35,7 @@ echo "</tr>\n";
 echo "</thead>\n";
 echo "<tbody>\n";
 
-$sql = "SELECT * FROM `cve` WHERE `cvss` >= 9 AND `asread` = Null ORDER BY `id` DESC LIMIT 10";
+$sql = "SELECT * FROM `cve` WHERE `cvss` >= 9 AND `asread` = NULL ORDER BY `id` DESC LIMIT 10";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
