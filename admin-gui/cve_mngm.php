@@ -38,12 +38,12 @@ echo "</tr>\n";
 echo "</thead>\n";
 echo "<tbody>\n";
 
-$sql = "SELECT * FROM `cve` WHERE `cvss` >= 9 ORDER BY `id` DESC LIMIT 5";
+$sql = "SELECT * FROM `cve` WHERE `cvss` >= 9 ORDER BY `id` DESC LIMIT 10";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
 {
-    $cvss_score = arr["cvss"] * 10;
+    $cvss_score = $arr["cvss"] * 10;
     echo "<tr>\n";
     echo "<td> " . $arr["cve_id"] . " </td>\n";
     echo "<td> " . $arr["date_published"] . " </td>\n"; 
