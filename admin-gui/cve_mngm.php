@@ -74,11 +74,11 @@ echo "</div>\n";
 echo "</div>\n";
 echo "</div>\n";
 
-// CVE list CVSS >= 7 (last 10, table format)
+// managed CVE
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
 echo "<div class=\"card-body\">\n";
-echo "<h4 class=\"card-title\">Last CVE (CVSS &gt= 7) </h4>\n";
+echo "<h4 class=\"card-title\">Last managed CVE</h4>\n";
 echo "<div class=\"table-responsive\">\n";
 echo "<table class=\"table table-striped\">\n";
 
@@ -93,7 +93,7 @@ echo "</tr>\n";
 echo "</thead>\n";
 echo "<tbody>\n";
 
-$sql = "SELECT * FROM `cve` WHERE `cvss` >= 7 ORDER BY `id` DESC LIMIT 10";
+$sql = "SELECT * FROM `cve` WHERE `asread` IS NOT NULL ORDER BY `id` DESC LIMIT 10";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
@@ -122,6 +122,10 @@ while ($arr = mysqli_fetch_assoc($res))
     echo "<td> " . $arr["date_modified"] . " </td>\n";
     echo "<td style=\"color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
     echo "<td> <i>$cpe_output</i> </td>\n";
+    echo "</tr>\n";
+
+    echo "<tr>\n";
+    echo "<td collspan=\"5\"> Desc... </td>\n";
     echo "</tr>\n";
 }
 
