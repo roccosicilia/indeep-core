@@ -40,17 +40,22 @@ $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
 {
+    // define CVSS color
     if ($arr["cvss"] >= 7) { $color = 'purple';}
     if ($arr["cvss"] >= 8) { $color = 'orange';}
     if ($arr["cvss"] >= 9) { $color = 'orangered';}
     if ($arr["cvss"] >= 9.5) { $color = 'red';}
+
+    // define CPE
+    $cpe_list = explode(",", $arr["cpe_list"]);
+    $cpe = explode(":", $cpe_list[0]);
 
     echo "<tr>\n";
     echo "<td> " . $arr["cve_id"] . " </td>\n";
     echo "<td> " . $arr["date_published"] . " </td>\n"; 
     echo "<td> " . $arr["date_modified"] . " </td>\n";
     echo "<td style=\"color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
-    echo "<td> :: </td>\n";
+    echo "<td> " . $cpe[3] . " :: " . $cpe[4] . " </td>\n";
     echo "</tr>\n";
 }
 
