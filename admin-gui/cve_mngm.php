@@ -47,15 +47,23 @@ while ($arr = mysqli_fetch_assoc($res))
     if ($arr["cvss"] >= 9.5) { $color = 'red';}
 
     // define CPE
-    $cpe_list = explode(",", $arr["cpe_list"]);
-    $cpe = explode(":", $cpe_list[0]);
+    if ($arr["cpe_list"] != '')
+    {
+        $cpe_list = explode(",", $arr["cpe_list"]);
+        $cpe = explode(":", $cpe_list[0]);
+        $cpe_output = $cpe[3] . " :: " . $cpe[4];
+    }
+    else
+    {
+        $cpe_output = 'Null';
+    }
 
     echo "<tr>\n";
     echo "<td> " . $arr["cve_id"] . " </td>\n";
     echo "<td> " . $arr["date_published"] . " </td>\n"; 
     echo "<td> " . $arr["date_modified"] . " </td>\n";
     echo "<td style=\"color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
-    echo "<td> " . $cpe[3] . " :: " . $cpe[4] . " </td>\n";
+    echo "<td> $cpe_output </td>\n";
     echo "</tr>\n";
 }
 
@@ -97,15 +105,23 @@ while ($arr = mysqli_fetch_assoc($res))
     if ($arr["cvss"] >= 9.5) { $color = 'red';}
 
     // define CPE
-    $cpe_list = explode(",", $arr["cpe_list"]);
-    $cpe = explode(":", $cpe_list[0]);
+    if ($arr["cpe_list"] != '')
+    {
+        $cpe_list = explode(",", $arr["cpe_list"]);
+        $cpe = explode(":", $cpe_list[0]);
+        $cpe_output = $cpe[3] . " :: " . $cpe[4];
+    }
+    else
+    {
+        $cpe_output = 'Null';
+    }
 
     echo "<tr>\n";
     echo "<td> " . $arr["cve_id"] . " </td>\n";
     echo "<td> " . $arr["date_published"] . " </td>\n"; 
     echo "<td> " . $arr["date_modified"] . " </td>\n";
     echo "<td style=\"color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
-    echo "<td> " . $cpe[3] . " :: " . $cpe[4] . " </td>\n";
+    echo "<td> $cpe_output </td>\n";
     echo "</tr>\n";
 }
 
