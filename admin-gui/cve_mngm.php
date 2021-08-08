@@ -100,7 +100,7 @@ while ($arr = mysqli_fetch_assoc($res))
     echo "<td> " . $arr["date_published"] . " </td>\n"; 
     echo "<td> " . $arr["date_modified"] . " </td>\n";
     echo "<td style=\"color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
-    echo "<td> " . $cpe[3] . " / " . $cpe[4] . " / " . $cpe[5] . " </td>\n";
+    echo "<td> " . $cpe[3] . " :: " . $cpe[4] . " </td>\n";
     echo "</tr>\n";
 }
 
