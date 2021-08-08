@@ -35,7 +35,7 @@ echo "</tr>\n";
 echo "</thead>\n";
 echo "<tbody>\n";
 
-$sql = "SELECT * FROM `cve` WHERE `cvss` >= 9 AND `asread` = NULL ORDER BY `id` DESC LIMIT 10";
+$sql = "SELECT * FROM `cve` WHERE `cvss` >= 9 AND `asread` = 'NULL' ORDER BY `id` DESC LIMIT 10";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
@@ -63,7 +63,7 @@ while ($arr = mysqli_fetch_assoc($res))
     echo "<td> " . $arr["date_published"] . " </td>\n"; 
     echo "<td> " . $arr["date_modified"] . " </td>\n";
     echo "<td style=\"color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
-    echo "<td> $cpe_output </td>\n";
+    echo "<td> <i>$cpe_output</i> </td>\n";
     echo "</tr>\n";
 }
 
@@ -121,7 +121,7 @@ while ($arr = mysqli_fetch_assoc($res))
     echo "<td> " . $arr["date_published"] . " </td>\n"; 
     echo "<td> " . $arr["date_modified"] . " </td>\n";
     echo "<td style=\"color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
-    echo "<td> $cpe_output </td>\n";
+    echo "<td> <i>$cpe_output</i> </td>\n";
     echo "</tr>\n";
 }
 
