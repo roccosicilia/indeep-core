@@ -181,21 +181,21 @@ function tmpl_sidebar()
     echo "</a>\n";
     echo "</li>\n";
     echo "<li class=\"nav-item nav-category\">Cyber Security</li>\n";
+
     echo "<li class=\"nav-item\">\n";
-    echo "<a class=\"nav-link\" data-bs-toggle=\"collapse\" href=\"#ui-basic\" aria-expanded=\"false\" aria-controls=\"ui-basic\">\n";
+    echo "<a class=\"nav-link\" data-bs-toggle=\"collapse\" href=\"./cve_mngm.php\" aria-expanded=\"false\" aria-controls=\"ui-basic\">\n";
     echo "<i class=\"menu-icon mdi mdi-floor-plan\"></i>\n";
-    echo "<span class=\"menu-title\">Vulnerability</span>\n";
-    echo "<i class=\"menu-arrow\"></i> \n";
+    echo "<span class=\"menu-title\">CVE management</span>\n";
     echo "</a>\n";
-    echo "<div class=\"collapse\" id=\"ui-basic\">\n";
-    echo "<ul class=\"nav flex-column sub-menu\">\n";
-    echo "<li class=\"nav-item\"> <a class=\"nav-link\" href=\"./cve_management.php\">CVE</a></li>\n";
-    echo "<li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\">Shodan</a></li>\n";
-    echo "<li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\">Nessus</a></li>\n";
-    echo "</ul>\n";
-    echo "</div>\n";
     echo "</li>\n";
-    echo "</ul>\n";
+
+    echo "<li class=\"nav-item\">\n";
+    echo "<a class=\"nav-link\" data-bs-toggle=\"collapse\" href=\"./shodan.php\" aria-expanded=\"false\" aria-controls=\"ui-basic\">\n";
+    echo "<i class=\"menu-icon mdi mdi-floor-plan\"></i>\n";
+    echo "<span class=\"menu-title\">Shodan</span>\n";
+    echo "</a>\n";
+    echo "</li>\n";
+
     echo "</nav>\n";
 }
 
