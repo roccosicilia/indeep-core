@@ -38,20 +38,21 @@ echo "</tr>\n";
 echo "</thead>\n";
 echo "<tbody>\n";
 
-$sql = "SELECT * FROM `cve` WHERE `cvss` >= 8 ORDER BY `id` DESC LIMIT 10";
+$sql = "SELECT * FROM `cve` WHERE `cvss` >= 7 ORDER BY `id` DESC LIMIT 10";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
 {
+    if ($arr["cvss"] >= 7) { $color = 'purple';}
     if ($arr["cvss"] >= 8) { $color = 'orange';}
-    if ($arr["cvss"] >= 9) { $color = 'brown';}
+    if ($arr["cvss"] >= 9) { $color = 'orangered';}
     if ($arr["cvss"] >= 9.5) { $color = 'red';}
 
     echo "<tr>\n";
     echo "<td> " . $arr["cve_id"] . " </td>\n";
     echo "<td> " . $arr["date_published"] . " </td>\n"; 
     echo "<td> " . $arr["date_modified"] . " </td>\n";
-    echo "<td style=\"color: $color\"> " . $arr["cvss"] . " </td>\n";
+    echo "<td style=\"color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
     echo "<td> :: </td>\n";
     echo "</tr>\n";
 }
