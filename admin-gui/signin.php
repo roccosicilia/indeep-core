@@ -10,7 +10,7 @@ if (!isset($_SESSION["username"]) AND isset($_POST["login_email"]) AND isset($_P
 {
     $username = addslashes(stripslashes($_POST["login_email"]));
     $password = addslashes(stripslashes($_POST["login_password"]));
-    $sql = "SELECT * FROM users WHERE `username` = '" . $username . "' ORDER BY id";
+    $sql = "SELECT * FROM `users` WHERE `username` = '" . $username . "' ORDER BY `id`";
     $res = mysqli_query($dbconn, $sql);
     $arr = mysqli_fetch_assoc($res);
 
