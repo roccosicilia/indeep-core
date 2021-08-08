@@ -127,4 +127,114 @@ function tmpl_head($title)
     echo "</head>\n";
 }
 
+function tmpl_nav($username)
+{
+    echo "<body>\n";
+    echo "<div class=\"container-scroller\">\n";
+    echo "<!-- partial:partials/_navbar.html -->\n";
+    echo "<nav class=\"navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row\">\n";
+    echo "<div class=\"text-center navbar-brand-wrapper d-flex align-items-center justify-content-start\">\n";
+    echo "<div class=\"me-3\">\n";
+    echo "<button class=\"navbar-toggler navbar-toggler align-self-center\" type=\"button\" data-bs-toggle=\"minimize\">\n";
+    echo "<span class=\"icon-menu\"></span>\n";
+    echo "</button>\n";
+    echo "</div>\n";
+    echo "<div>\n";
+    echo "<a class=\"navbar-brand brand-logo\" href=\"./index.php\">\n";
+    // echo "<img src=\"images/logo.svg\" alt=\"logo\" />\n";
+    echo "</a>\n";
+    echo "<a class=\"navbar-brand brand-logo-mini\" href=\"./index.php\">\n";
+    // echo "<img src=\"images/logo-mini.svg\" alt=\"logo\" />\n";
+    echo "</a>\n";
+    echo "</div>\n";
+    echo "</div>\n";
+    echo "<div class=\"navbar-menu-wrapper d-flex align-items-top\">\n";
+    echo "<ul class=\"navbar-nav\">\n";
+    echo "<li class=\"nav-item font-weight-semibold d-none d-lg-block ms-0\">\n";
+    echo "<h1 class=\"welcome-text\">Good Morning, <span class=\"text-black fw-bold\">$username</span></h1>\n";
+    echo "<h3 class=\"welcome-sub-text\">Your stat summary for last mouth</h3>\n";
+    echo "</li>\n";
+    echo "</ul>\n";
+
+    echo "<ul class=\"navbar-nav ms-auto\">\n";
+    // menu element removed
+    echo "</ul>\n";
+    
+    echo "<button class=\"navbar-toggler navbar-toggler-right d-lg-none align-self-center\" type=\"button\" data-bs-toggle=\"offcanvas\">\n";
+    echo "<span class=\"mdi mdi-menu\"></span>\n";
+    echo "</button>\n";
+    echo "</div>\n";
+    echo "</nav>\n";
+}
+
+function tmpl_sidebar()
+{
+    echo "<!-- partial -->\n";
+    echo "<div class=\"container-fluid page-body-wrapper\">\n";
+    echo "<!-- partial:partials/_sidebar.html -->\n";
+    echo "<nav class=\"sidebar sidebar-offcanvas\" id=\"sidebar\">\n";
+    echo "<ul class=\"nav\">\n";
+    echo "<li class=\"nav-item\">\n";
+    echo "<a class=\"nav-link\" href=\"./index.php\">\n";
+    echo "<i class=\"mdi mdi-grid-large menu-icon\"></i>\n";
+    echo "<span class=\"menu-title\">Dashboard</span>\n";
+    echo "</a>\n";
+    echo "</li>\n";
+    echo "<li class=\"nav-item nav-category\">Cyber Security</li>\n";
+    echo "<li class=\"nav-item\">\n";
+    echo "<a class=\"nav-link\" data-bs-toggle=\"collapse\" href=\"#ui-basic\" aria-expanded=\"false\" aria-controls=\"ui-basic\">\n";
+    echo "<i class=\"menu-icon mdi mdi-floor-plan\"></i>\n";
+    echo "<span class=\"menu-title\">Vulnerability</span>\n";
+    echo "<i class=\"menu-arrow\"></i> \n";
+    echo "</a>\n";
+    echo "<div class=\"collapse\" id=\"ui-basic\">\n";
+    echo "<ul class=\"nav flex-column sub-menu\">\n";
+    echo "<li class=\"nav-item\"> <a class=\"nav-link\" href=\"./cve_management.php\">CVE</a></li>\n";
+    echo "<li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\">Shodan</a></li>\n";
+    echo "<li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\">Nessus</a></li>\n";
+    echo "</ul>\n";
+    echo "</div>\n";
+    echo "</li>\n";
+    echo "</ul>\n";
+    echo "</nav>\n";
+}
+
+function tmpl_body()
+{
+    echo "<!-- partial -->\n";
+    echo "<div class=\"main-panel\">\n";
+    echo "<div class=\"content-wrapper\">\n";
+    echo "<div class=\"row\">\n";
+    echo "<div class=\"col-sm-12\">\n";
+    echo "<div class=\"home-tab\">\n";
+    echo "<div class=\"tab-content tab-content-basic\">\n";
+    echo "<div class=\"tab-pane fade show active\" id=\"overview\" role=\"tabpanel\" aria-labelledby=\"overview\">\n";
+    // start content
+    echo "<!-- CONTENT -->";
+}
+
+function tmpl_footer()
+{
+    echo "</div>\n";
+    echo "</div>\n";
+    echo "</div>\n";
+    echo "</div>\n";
+    echo "</div>\n";
+    echo "</div>\n";
+    echo "<!-- content-wrapper ends -->\n";
+    echo "<!-- partial:partials/_footer.html -->\n";
+    echo "<footer class=\"footer\">\n";
+    echo "<div class=\"d-sm-flex justify-content-center justify-content-sm-between\">\n";
+    echo "<span class=\"float-none float-sm-right d-block mt-1 mt-sm-0 text-center\">Copyright © 2021. All rights reserved.</span>\n";
+    echo "</div>\n";
+    echo "</footer>\n";
+    echo "<!-- partial -->\n";
+    echo "</div>\n";
+    echo "<!-- main-panel ends -->\n";
+    echo "</div>\n";
+    echo "<!-- page-body-wrapper ends -->\n";
+    echo "</div>\n";
+    echo "<!-- container-scroller -->\n";
+}
+
 ?>
