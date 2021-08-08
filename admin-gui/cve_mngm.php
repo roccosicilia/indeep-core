@@ -59,10 +59,10 @@ while ($arr = mysqli_fetch_assoc($res))
     }
 
     echo "<tr>\n";
-    echo "<td> <a href=\"./cve_detail.php?mode=edit&id=" . $arr["id"] . "\">" . $arr["cve_id"] . "</a> </td>\n";
-    echo "<td> " . $arr["date_published"] . " </td>\n"; 
-    echo "<td> " . $arr["date_modified"] . " </td>\n";
-    echo "<td style=\"color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
+    echo "<td style=\"width: 20%\"> <a href=\"./cve_detail.php?mode=edit&id=" . $arr["id"] . "\">" . $arr["cve_id"] . "</a> </td>\n";
+    echo "<td style=\"width: 20%\"> " . $arr["date_published"] . " </td>\n"; 
+    echo "<td style=\"width: 20%\"> " . $arr["date_modified"] . " </td>\n";
+    echo "<td style=\"width: 10%; color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
     echo "<td> <i>$cpe_output</i> </td>\n";
     echo "</tr>\n";
 }
@@ -116,16 +116,18 @@ while ($arr = mysqli_fetch_assoc($res))
         $cpe_output = 'Null';
     }
 
-    echo "<tr>\n";
-    echo "<td> " . $arr["cve_id"] . " </td>\n";
-    echo "<td> " . $arr["date_published"] . " </td>\n"; 
-    echo "<td> " . $arr["date_modified"] . " </td>\n";
-    echo "<td style=\"color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
-    echo "<td> <i>$cpe_output</i> </td>\n";
-    echo "</tr>\n";
+    $json = $arr["info"];
+    $info = json_decode($json);
 
     echo "<tr>\n";
-    echo "<td collspan=\"5\"> " . $arr["info"] . " </td>\n";
+    echo "<td style=\"width: 20%\"> <a href=\"./cve_detail.php?mode=edit&id=" . $arr["id"] . "\">" . $arr["cve_id"] . "</a> </td>\n";
+    echo "<td style=\"width: 20%\"> " . $arr["date_published"] . " </td>\n"; 
+    echo "<td style=\"width: 20%\"> " . $arr["date_modified"] . " </td>\n";
+    echo "<td style=\"width: 10%; color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
+    echo "<td> <i>$cpe_output</i> </td>\n";
+    echo "</tr>\n";
+    echo "<tr>\n";
+    echo "<td collspan=\"5\"> " . $info->{'Description'} . " </td>\n";
     echo "</tr>\n";
 }
 
