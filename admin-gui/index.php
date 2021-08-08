@@ -12,11 +12,11 @@ if (!isset($_SESSION["username"]))
 }
 
 tmpl_head($config_title);
-tmpl_nav($username);
+tmpl_nav($_SESSION["username"]);
 tmpl_sidebar();
 tmpl_body();
 
-echo "INDEX";
+echo "Test content!";
 
 tmpl_footer();
 
