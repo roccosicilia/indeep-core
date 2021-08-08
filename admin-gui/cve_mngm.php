@@ -20,7 +20,7 @@ tmpl_body();
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
 echo "<div class=\"card-body\">\n";
-echo "<h4 class=\"card-title\">Last CVE (CVSS &gt= 9) </h4>\n";
+echo "<h4 class=\"card-title\">Last unmanaged CVE (CVSS &gt= 9) </h4>\n";
 echo "<div class=\"table-responsive\">\n";
 echo "<table class=\"table table-striped\">\n";
 
@@ -35,7 +35,7 @@ echo "</tr>\n";
 echo "</thead>\n";
 echo "<tbody>\n";
 
-$sql = "SELECT * FROM `cve` WHERE `cvss` >= 9 ORDER BY `id` DESC LIMIT 10";
+$sql = "SELECT * FROM `cve` WHERE `cvss` >= 9 AND `asread` = Null ORDER BY `id` DESC LIMIT 10";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
@@ -59,7 +59,7 @@ while ($arr = mysqli_fetch_assoc($res))
     }
 
     echo "<tr>\n";
-    echo "<td> " . $arr["cve_id"] . " </td>\n";
+    echo "<td> <a href=\"./cve_detail.php?mode=edit&id=" . $arr["id"] . "\">" . $arr["cve_id"] . "</a> </td>\n";
     echo "<td> " . $arr["date_published"] . " </td>\n"; 
     echo "<td> " . $arr["date_modified"] . " </td>\n";
     echo "<td style=\"color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";
