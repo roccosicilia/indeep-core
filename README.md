@@ -5,4 +5,8 @@ Mixed toolz for cyber defence analysis
 Tiny web GUI for data visualization and analysis.
 
 ## getdata
-getcve.py: get last CVE from CIRCL DB.
+A scripts collection to get data from open sources.
+
+### getcve.py
+A script to get last CVE from CIRCL DB.
+Change the database vars in config.json and import che DB schema available in dbschema/cve.sql.
