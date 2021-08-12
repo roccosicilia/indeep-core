@@ -25,7 +25,7 @@ for result in results:
 
   info = json.dumps(result[7])
   # DEBUG
-  print(info)
+  print(info["cpe"])
 
   # DEBUG
   # print("{0} {1}".format(info["cpe"], info["Description"]))
