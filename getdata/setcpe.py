@@ -25,7 +25,6 @@ for result in results:
 
   infoj = json.dumps(result[7])
   infoj = json.loads(infoj)
-  infoj = json.dumps(infoj)
   
   # DEBUG
   if infoj != None:
