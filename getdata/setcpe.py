@@ -24,10 +24,11 @@ for result in results:
   # print("CEV ID: {0}.".format(result[1]))
 
   info = json.dumps(result[7])
+  infoj = json.loads(info)
   
   # DEBUG
-  if info != None:
-    print(type(info))
+  if infoj != None:
+    print(type(infoj))
     # print("cpe: {}".format(info["cpe"]))
 
   # DEBUG
