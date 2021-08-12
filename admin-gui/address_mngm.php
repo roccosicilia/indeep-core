@@ -146,7 +146,12 @@ while ($arr = mysqli_fetch_assoc($res))
     // get some IP from list
     for($i = 0; $i <= count($iplist_arr); $i++)
     {
-        $iplist_prev .= $iplist_arr[$i] . "; ";
+        $sql = "SELECT * FROM `ipreputation` WHERE `id` = '" . $iplist_arr[$i] . "'";
+        $res = mysqli_query($dbconn, $sql);
+        $arr = mysqli_fetch_assoc($res);
+        $ip = $arr["ipaddress"];
+        $iplist_prev .= $ip . "; ";
+
     }
     $iplist_prev .= "[...]";
 
