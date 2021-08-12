@@ -27,7 +27,6 @@ for result in results:
   info = json.loads('{0}'.format(info))
   # DEBUG
   if info != None:
-    print(info)
     print("cpe: {}".format(info["cpe"]))
 
   # DEBUG
