@@ -29,7 +29,7 @@ if ($action == 'add')
     echo "<div class=\"card\">\n";
     echo "<div class=\"card-body\">\n";
     echo "<h4 class=\"card-title\">Add new IP address</h4>\n";
-    echo "<form method=\"post\" action=\"./address_mngm.php?action=newip\">\n";
+    echo "<form action=\"./address_mngm.php?action=newip\" method=\"POST\">\n";
 
     echo "<div class=\"form-group\">\n";
     echo "<label for=\"ipaddress\">IP Address</label>\n";
@@ -53,19 +53,18 @@ if ($action == 'add')
     echo "</div>\n";
 }
 
-if ($action == 'newip')
+if (($action == 'newip') && ($_POST["ipaddress"] != ''))
 {
     $newip = addslashes(stripslashes($_POST["ipaddress"]));
     $reputation = addslashes(stripslashes($_POST["ipreputation"]));
     $creation_date = date("Y-m-d");
     $lastcheck = $creation_date;
-
     $sql = "INSERT INTO `ipreputation` (`ipaddress`, `reputation`, `creation_date`, `lastcheck`) VALUES ('" . $newip . "', '" . $reputation . "', '" . $creation_date . "', '" . $lastcheck . "')";
     $res = mysqli_query($dbconn, $sql);
-
-    // debug
-    print_r($_POST);
-
+}
+else
+{
+    echo "<p>Error: $sql</p>\n";
 }
 
 
