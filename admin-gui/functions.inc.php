@@ -180,19 +180,38 @@ function tmpl_sidebar()
     echo "<span class=\"menu-title\">Dashboard</span>\n";
     echo "</a>\n";
     echo "</li>\n";
-    echo "<li class=\"nav-item nav-category\">Cyber Security</li>\n";
 
+    # begin menu CYBER SECURITY
+    echo "<li class=\"nav-item nav-category\">Cyber Security</li>\n";
+    #### CVE MANAGEMENT
     echo "<li class=\"nav-item\">\n";
     echo "<a class=\"nav-link\" data-bs-toggle=\"collapse\" href=\"./cve_mngm.php\" aria-expanded=\"false\" aria-controls=\"ui-basic\">\n";
     echo "<i class=\"menu-icon mdi mdi-floor-plan\"></i>\n";
     echo "<span class=\"menu-title\">CVE management</span>\n";
     echo "</a>\n";
     echo "</li>\n";
-
+    #### SHODAN
     echo "<li class=\"nav-item\">\n";
     echo "<a class=\"nav-link\" data-bs-toggle=\"collapse\" href=\"./shodan.php\" aria-expanded=\"false\" aria-controls=\"ui-basic\">\n";
     echo "<i class=\"menu-icon mdi mdi-floor-plan\"></i>\n";
     echo "<span class=\"menu-title\">Shodan</span>\n";
+    echo "</a>\n";
+    echo "</li>\n";
+
+    # begin menu IP reputation
+    echo "<li class=\"nav-item nav-category\">IP reputation</li>\n";
+    #### ADDRESS MANAGEMENT
+    echo "<li class=\"nav-item\">\n";
+    echo "<a class=\"nav-link\" data-bs-toggle=\"collapse\" href=\"./address_mngm.php\" aria-expanded=\"false\" aria-controls=\"ui-basic\">\n";
+    echo "<i class=\"menu-icon mdi mdi-floor-plan\"></i>\n";
+    echo "<span class=\"menu-title\">Address management</span>\n";
+    echo "</a>\n";
+    echo "</li>\n";
+    #### RULE MANAGEMENT
+    echo "<li class=\"nav-item\">\n";
+    echo "<a class=\"nav-link\" data-bs-toggle=\"collapse\" href=\"./rule_mngm.php\" aria-expanded=\"false\" aria-controls=\"ui-basic\">\n";
+    echo "<i class=\"menu-icon mdi mdi-floor-plan\"></i>\n";
+    echo "<span class=\"menu-title\">Rule management</span>\n";
     echo "</a>\n";
     echo "</li>\n";
 
