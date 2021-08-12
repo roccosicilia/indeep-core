@@ -26,8 +26,7 @@ for result in results:
   #infoj = json.dumps(result[7].replace('\"', '"'))
   #infoj = json.loads(str(infoj))
 
-  info = json.dumps(result[7])
-  info = info.json()
+  info = json.dump(result[7])
   
   # DEBUG
   if info != None:
