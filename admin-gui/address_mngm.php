@@ -61,13 +61,10 @@ if (($action == 'newip') && ($_POST["ipaddress"] != ''))
     $lastcheck = $creation_date;
     $sql = "INSERT INTO `ipreputation` (`ipaddress`, `reputation`, `creation_date`, `lastcheck`) VALUES ('" . $newip . "', '" . $reputation . "', '" . $creation_date . "', '" . $lastcheck . "')";
     $res = mysqli_query($dbconn, $sql);
-}
-else
-{
-    echo "<p>Error: $sql</p>\n";
-}
 
-
+    // debug
+    echo "<!-- SQL: $sql -->\n";
+}
 
 // IP reputation list
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
