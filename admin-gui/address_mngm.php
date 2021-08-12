@@ -55,7 +55,7 @@ while ($arr = mysqli_fetch_assoc($res))
 }
 
 echo "<tr>\n";
-echo "<td align=\"right\"><button type=\"button\" class=\"btn btn-light btn-rounded btn-fw\"><a href=\"./address_mngm.php?action=add\">Add</<a></button></td>\n";
+echo "<td align=\"right\" collspan=\"4\"><button type=\"button\" class=\"btn btn-light btn-rounded btn-fw\"><a href=\"./address_mngm.php?action=add\">Add</<a></button></td>\n";
 echo "</tr>\n";
 echo "</tbody>\n";
 echo "</table>\n";
