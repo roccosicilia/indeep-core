@@ -33,15 +33,15 @@ if ($action == 'add')
 
     echo "<div class=\"form-group\">\n";
     echo "<label for=\"ipaddress\">IP Address</label>\n";
-    echo "<input type=\"text\" class=\"form-control\" id=\"ipaddress\" placeholder=\"AAA.BBB.CCC.DDD\">\n";
+    echo "<input type=\"text\" class=\"form-control\" id=\"ipaddress\" name=\"ipaddress\" placeholder=\"AAA.BBB.CCC.DDD\">\n";
     echo "</div>\n";
 
     echo "<div class=\"form-group\">\n";
     echo "<label for=\"ipreputation\">Reputation</label>\n";
-    echo "<select class=\"form-control\" id=\"ipreputation\">\n";
-    echo "<option>bad</option>\n";
-    echo "<option>neutral</option>\n";
-    echo "<option>good</option>\n";
+    echo "<select class=\"form-control\" id=\"ipreputation\" name=\"ipreputation\">\n";
+    echo "<option value=\"bad\">bad</option>\n";
+    echo "<option value=\"neutral\">neutral</option>\n";
+    echo "<option value=\"good\">good</option>\n";
     echo "</select>\n";
     echo "</div>\n";
 
