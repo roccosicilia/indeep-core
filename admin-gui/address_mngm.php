@@ -29,7 +29,7 @@ if ($action == 'add')
     echo "<div class=\"card\">\n";
     echo "<div class=\"card-body\">\n";
     echo "<h4 class=\"card-title\">Add new IP address</h4>\n";
-    echo "<form class=\"forms-sample\" action=\"./address_mngm.php?action=newip\" method=\"POST\">\n";
+    echo "<form method=\"post\" class=\"forms-sample\" action=\"./address_mngm.php?action=newip\">\n";
 
     echo "<div class=\"form-group\">\n";
     echo "<label for=\"ipaddress\">IP Address</label>\n";
