@@ -28,7 +28,7 @@ for result in results:
   # print(info_str)
   info = json.loads(info_str)
   # DEBUG
-  print info["cpe"], info["Description"]
+  print("{0} {1}".format(info["cpe"], info["Description"]))
 
 '''
   if info["cpe"] == 'set':
