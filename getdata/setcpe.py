@@ -20,4 +20,9 @@ cursor.execute(sql_cve)
 results = cursor.fetchall()
 
 for result in results:
-  print("Il cve id e' {0}".format(result[1]))
+  # DEBUG
+  # print("CEV ID: {0}.".format(result[1]))
+
+  info = json.load(result[7])
+  if info["cpe"] == 'set':
+    print("The CVE {0} was managed".formta(result[1]))
