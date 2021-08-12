@@ -23,6 +23,6 @@ for result in results:
   # DEBUG
   # print("CEV ID: {0}.".format(result[1]))
 
-  info = json.loads(result[7])
+  info = json.dump(result[7])
   if info["cpe"] == 'set':
     print("The CVE {0} was managed".formta(result[1]))
