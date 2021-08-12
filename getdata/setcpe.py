@@ -23,7 +23,7 @@ for result in results:
   # DEBUG
   # print("CEV ID: {0}.".format(result[1]))
 
-  info_str = str(result[7])
+  info_str = result[7]
   # DEBUG
   # print(info_str)
   info = json.loads(info_str)
