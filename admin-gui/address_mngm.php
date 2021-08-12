@@ -63,6 +63,8 @@ if ($action == 'newip')
     $sql = "INSERT INTO `ipreputation` (`ipaddress`, `reputation`, `creation_date`, `lastcheck`) VALUES ('" . $newip . "', '" . $reputation . "', '" . $creation_date . "', '" . $lastcheck . "')";
     $res = mysqli_query($dbconn, $sql);
 
+    print_r($_POST);
+
 }
 
 
