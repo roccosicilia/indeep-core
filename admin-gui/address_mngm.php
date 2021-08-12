@@ -24,7 +24,7 @@ if (isset($_GET["action"]))
 
 if ($action == 'add')
 {
-    // Add new IP
+    // Add new IP FORM
     echo "<div class=\"col-12 grid-margin stretch-card\">\n";
     echo "<div class=\"card\">\n";
     echo "<div class=\"card-body\">\n";
@@ -32,7 +32,7 @@ if ($action == 'add')
     echo "<form class=\"forms-sample\" action=\"./address_mngm.php?action=newip\" method=\"POST\">\n";
 
     echo "<div class=\"form-group\">\n";
-    echo "<label for=\"ipaddress\">Name</label>\n";
+    echo "<label for=\"ipaddress\">IP Address</label>\n";
     echo "<input type=\"text\" class=\"form-control\" id=\"ipaddress\" placeholder=\"AAA.BBB.CCC.DDD\">\n";
     echo "</div>\n";
 
@@ -52,6 +52,20 @@ if ($action == 'add')
     echo "</div>\n";
     echo "</div>\n";
 }
+
+if ($action == 'newip')
+{
+    $newip = addslashes(stripslashes($_POST["ipaddress"]));
+    $reputation = addslashes(stripslashes($_POST["ipreputation"]));
+    $creation_date = date("Y-m-d");
+    $lastcheck = $creation_date;
+
+    $sql = "INSERT INTO `ipreputation` (`ipaddress`, `reputation`, `creation_date`, `lastcheck`) VALUES ('" . $newip . "', '" . $reputation . "', '" . $creation_date . "', '" . $lastcheck . "')";
+    $res = mysqli_query($dbconn, $sql);
+
+}
+
+
 
 // IP reputation list
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
@@ -85,7 +99,7 @@ while ($arr = mysqli_fetch_assoc($res))
     echo "<tr>\n";
     echo "<td style=\"width: 20%\"> <a href=\"./cve_detail.php?mode=view&id=" . $arr["id"] . "\">" . $arr["ipaddress"] . "</a> </td>\n";
     echo "<td style=\"width: 20%\"> " . $arr["creation_date"] . " </td>\n"; 
-    echo "<td style=\"width: 20%\"> " . $arr["last_check"] . " </td>\n";
+    echo "<td style=\"width: 20%\"> " . $arr["lastcheck"] . " </td>\n";
     echo "<td style=\"width: 10%; color: $color\"> <b>" . $arr["reputation"] . "</b> </td>\n";
     echo "<td> null </td>\n";
     echo "</tr>\n";
