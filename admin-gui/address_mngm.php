@@ -139,6 +139,7 @@ while ($arr = mysqli_fetch_assoc($res))
 {
     $info_json = $arr["info"];
     $info = json_decode($info_json);
+    $iplist = $info->{"iplist"};
 
     echo "<tr>\n";
     echo "<td style=\"width: 15%\"> " . $arr["istance_remark"] . " </td>\n";
@@ -160,7 +161,5 @@ echo "</div>\n";
 echo "</div>\n";
 
 tmpl_footer();
-
-print_r($info);
 
 ?>
