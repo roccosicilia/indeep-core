@@ -45,8 +45,7 @@ if ($action == 'add')
     echo "</select>\n";
     echo "</div>\n";
 
-    echo "<input type=\"submit\" class=\"btn btn-light me-2\">Submit</button>\n";
-    echo "<button class=\"btn btn-light\">Cancel</button>\n";
+    echo "<input type=\"submit\" value=\"Submit\" class=\"btn btn-light me-2\" />\n";
     echo "</form>\n";
     echo "</div>\n";
     echo "</div>\n";
