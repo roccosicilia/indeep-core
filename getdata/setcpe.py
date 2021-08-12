@@ -19,5 +19,8 @@ sql_cve = "SELECT * FROM `cve` WHERE `info` NOT LIKE '%\"cpe\" : \"set\"%' ORDER
 cursor.execute(sql_cve)
 results = cursor.fetchall()
 
+# debug
+print(sql_cve)
+
 for result in results:
   print(result)
