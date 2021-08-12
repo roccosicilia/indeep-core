@@ -27,7 +27,8 @@ for result in results:
   
   # DEBUG
   if info != None:
-    print("cpe: {}".format(info["cpe"]))
+    print(type(info))
+    # print("cpe: {}".format(info["cpe"]))
 
   # DEBUG
   # print("{0} {1}".format(info["cpe"], info["Description"]))
