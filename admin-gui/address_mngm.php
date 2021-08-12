@@ -162,4 +162,6 @@ echo "</div>\n";
 
 tmpl_footer();
 
+print_r($info);
+
 ?>
