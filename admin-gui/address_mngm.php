@@ -29,7 +29,7 @@ if ($action == 'add')
     echo "<div class=\"card\">\n";
     echo "<div class=\"card-body\">\n";
     echo "<h4 class=\"card-title\">Add new IP address</h4>\n";
-    echo "<form action=\"./address_mngm.php?action=newip\" method=\"GET\">\n";
+    echo "<form action=\"./address_mngm.php?action=newip\" method=\"POST\">\n";
 
     echo "<div class=\"form-group\">\n";
     echo "<label for=\"ipaddress\">IP Address</label>\n";
@@ -45,7 +45,7 @@ if ($action == 'add')
     echo "</select>\n";
     echo "</div>\n";
 
-    echo "<button type=\"submit\" class=\"btn btn-light me-2\">Submit</button>\n";
+    echo "<input type=\"submit\" class=\"btn btn-light me-2\">Submit</button>\n";
     echo "<button class=\"btn btn-light\">Cancel</button>\n";
     echo "</form>\n";
     echo "</div>\n";
@@ -53,10 +53,10 @@ if ($action == 'add')
     echo "</div>\n";
 }
 
-if (($action == 'newip') && ($_GET["ipaddress"] != ''))
+if ($action == 'newip')
 {
-    $newip = addslashes(stripslashes($_GET["ipaddress"]));
-    $reputation = addslashes(stripslashes($_GET["ipreputation"]));
+    $newip = addslashes(stripslashes($_POST["ipaddress"]));
+    $reputation = addslashes(stripslashes($_POST["ipreputation"]));
     $creation_date = date("Y-m-d");
     $lastcheck = $creation_date;
     $sql = "INSERT INTO `ipreputation` (`ipaddress`, `reputation`, `creation_date`, `lastcheck`) VALUES ('" . $newip . "', '" . $reputation . "', '" . $creation_date . "', '" . $lastcheck . "')";
