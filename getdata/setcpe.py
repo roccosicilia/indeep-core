@@ -20,4 +20,4 @@ cursor.execute(sql_cve)
 results = cursor.fetchall()
 
 for result in results:
-  print("Il cve id e' {0}".format(result[0]))
+  print("Il cve id e' {0}".format(result[1]))
