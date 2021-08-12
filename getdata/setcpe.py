@@ -31,6 +31,7 @@ for result in results:
  
   if info != None:
     # print("cpe: {}".format(info['cpe']))
+    data = json.dumps(info)
     print(type(info))
 
   # DEBUG
