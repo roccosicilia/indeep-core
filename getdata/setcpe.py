@@ -23,9 +23,9 @@ for result in results:
   # DEBUG
   # print("CEV ID: {0}.".format(result[1]))
 
-  info = json.loads(str(result[7]))
+  info_str = result[7]
   # DEBUG
-  print(info)
+  print(info_str)
 
 '''
   if info["cpe"] == 'set':
