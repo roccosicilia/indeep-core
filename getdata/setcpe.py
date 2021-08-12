@@ -24,7 +24,7 @@ for result in results:
   # print("CEV ID: {0}.".format(result[1]))
 
   infoj = json.dumps(str(result[7]))
-  infoj = json.loads(str(infoj))
+  #infoj = json.loads(str(infoj))
   
   # DEBUG
   if infoj != None:
