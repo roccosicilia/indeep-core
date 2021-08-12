@@ -16,7 +16,38 @@ tmpl_nav($_SESSION["username"], "Address Management");
 tmpl_sidebar();
 tmpl_body();
 
-// CVE list CVSS >= 9 (last 5, table format)
+// Add new IP
+echo "<div class=\"col-12 grid-margin stretch-card\">\n";
+echo "<div class=\"card\">\n";
+echo "<div class=\"card-body\">\n";
+echo "<h4 class=\"card-title\">Add new IP address</h4>\n";
+echo "<p class=\"card-description\">\n";
+echo "Basic form elements\n";
+echo "</p>\n";
+echo "<form class=\"forms-sample\" action=\"./address_mngm.php?action=newip\" method=\"POST\">\n";
+
+echo "<div class=\"form-group\">\n";
+echo "<label for=\"ipaddress\">Name</label>\n";
+echo "<input type=\"text\" class=\"form-control\" id=\"ipaddress\" placeholder=\"AAA.BBB.CCC.DDD\">\n";
+echo "</div>\n";
+
+echo "<div class=\"form-group\">\n";
+echo "<label for=\"ipreputation\">Reputation</label>\n";
+echo "<select class=\"form-control\" id=\"ipreputation\">\n";
+echo "<option>bad</option>\n";
+echo "<option>neutral</option>\n";
+echo "<option>good</option>\n";
+echo "</select>\n";
+echo "</div>\n";
+
+echo "<button type=\"submit\" class=\"btn btn-primary me-2\">Submit</button>\n";
+echo "<button class=\"btn btn-light\">Cancel</button>\n";
+echo "</form>\n";
+echo "</div>\n";
+echo "</div>\n";
+echo "</div>\n";
+
+// IP reputation list
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
 echo "<div class=\"card-body\">\n";
