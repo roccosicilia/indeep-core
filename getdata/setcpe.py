@@ -28,7 +28,7 @@ for result in results:
   # DEBUG
   if info != None:
     print(info)
-    print(info["cpe"])
+    print(info[0])
 
   # DEBUG
   # print("{0} {1}".format(info["cpe"], info["Description"]))
