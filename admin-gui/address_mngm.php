@@ -22,7 +22,7 @@ if (isset($_GET["action"]))
     $action = addslashes(stripslashes($_GET["action"]));
 }
 
-if ($action == 'add')
+if ($action == 'addip')
 {
     // Add new IP FORM
     echo "<div class=\"col-12 grid-margin stretch-card\">\n";
@@ -104,7 +104,54 @@ while ($arr = mysqli_fetch_assoc($res))
 }
 
 echo "<tr>\n";
-echo "<td colspan=\"5\"><button type=\"button\" class=\"btn btn-light btn-rounded btn-fw\"><a href=\"./address_mngm.php?action=add\"> Add </<a></button></td>\n";
+echo "<td colspan=\"5\"><button type=\"button\" class=\"btn btn-light btn-rounded btn-fw\"><a href=\"./address_mngm.php?action=addip\"> Add </<a></button></td>\n";
+echo "</tr>\n";
+echo "</tbody>\n";
+echo "</table>\n";
+echo "</div>\n";
+echo "</div>\n";
+echo "</div>\n";
+echo "</div>\n";
+
+// Dynamic list
+echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
+echo "<div class=\"card\">\n";
+echo "<div class=\"card-body\">\n";
+echo "<h4 class=\"card-title\">Dynamic list</h4>\n";
+echo "<div class=\"table-responsive\">\n";
+echo "<table class=\"table table-striped\">\n";
+
+echo "<thead>\n";
+echo "<tr>\n";
+echo "<th> Remark </th>\n";
+echo "<th> Creation date </th>\n";
+echo "<th> Expiration date </th>\n";
+echo "<th> Description </th>\n";
+echo "<th> Info </th>\n";
+echo "</tr>\n";
+echo "</thead>\n";
+echo "<tbody>\n";
+
+$sql = "SELECT * FROM `rule_dynamiclist` ORDER BY `id` DESC LIMIT 50";
+$res = mysqli_query($dbconn, $sql);
+
+while ($arr = mysqli_fetch_assoc($res))
+{
+    $info_json = $arr["info"];
+    $info = json_decode($info_json);
+    $iplist = info["iplist"];
+
+    echo "<tr>\n";
+    echo "<td style=\"width: 20%\"> " . $arr["istance_remark"] . " </td>\n";
+    echo "<td style=\"width: 20%\"> " . $arr["creation_date"] . " </td>\n"; 
+    echo "<td style=\"width: 20%\"> " . $arr["expiration_date"] . " </td>\n";
+    echo "<td style=\"width: 10%;\"> $iplist </td>\n";
+    echo "<td> null </td>\n";
+    echo "</tr>\n";
+}
+
+echo "<tr>\n";
+echo "<td colspan=\"5\"><button type=\"button\" class=\"btn btn-light btn-rounded btn-fw\"><a href=\"./address_mngm.php?action=addrule\"> Add </<a></button></td>\n";
 echo "</tr>\n";
 echo "</tbody>\n";
 echo "</table>\n";
