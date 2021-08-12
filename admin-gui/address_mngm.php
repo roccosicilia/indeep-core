@@ -140,13 +140,22 @@ while ($arr = mysqli_fetch_assoc($res))
     $info_json = $arr["info"];
     $info = json_decode($info_json);
     $iplist = $info->{"iplist"};
+    $iplist_arr = explode(",", $iplist);
+
+    $iplist_prev = '';
+    // get some IP from list
+    for($i = 0; $i <= count($iplist_arr); $i++)
+    {
+        $iplist_prev .= $iplist_arr[$i] . "; ";
+    }
+    $iplist_prev .= "[...]";
 
     echo "<tr>\n";
     echo "<td style=\"width: 15%\"> " . $arr["istance_remark"] . " </td>\n";
     echo "<td style=\"width: 15%\"> " . $arr["creation_date"] . " </td>\n"; 
     echo "<td style=\"width: 15%\"> " . $arr["expiration_date"] . " </td>\n";
     echo "<td style=\"width: 15%\"> " . $arr["description"] . " </td>\n";
-    echo "<td> $iplist </td>\n";
+    echo "<td> $iplist_prev </td>\n";
     echo "</tr>\n";
 }
 
