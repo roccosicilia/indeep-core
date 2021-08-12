@@ -24,6 +24,8 @@ for result in results:
   # print("CEV ID: {0}.".format(result[1]))
 
   info = json.dumps(str(result[7]))
+  # DEBUG
+  print(info)
 
 '''
   if info["cpe"] == 'set':
