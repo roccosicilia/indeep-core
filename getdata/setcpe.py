@@ -28,10 +28,9 @@ for result in results:
 
   info = json.dumps(result[7])
   info = json.loads(info)
-  
-  # DEBUG
+ 
   if info != None:
-    print("cpe: {}".format(info['cpe']))
+    # print("cpe: {}".format(info['cpe']))
     print(type(info))
 
   # DEBUG
