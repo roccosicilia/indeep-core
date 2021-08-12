@@ -24,7 +24,7 @@ for result in results:
   # print("CEV ID: {0}.".format(result[1]))
 
   info = json.dumps(result[7])
-  info = json.loads(info)
+  info = json.loads('{0}'.format(info))
   # DEBUG
   print(info["cpe"])
 
