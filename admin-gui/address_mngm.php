@@ -139,14 +139,14 @@ while ($arr = mysqli_fetch_assoc($res))
 {
     $info_json = $arr["info"];
     $info = json_decode($info_json);
-    $iplist = info["iplist"];
+    $iplist = $info["iplist"];
 
     echo "<tr>\n";
-    echo "<td style=\"width: 20%\"> " . $arr["istance_remark"] . " </td>\n";
-    echo "<td style=\"width: 20%\"> " . $arr["creation_date"] . " </td>\n"; 
-    echo "<td style=\"width: 20%\"> " . $arr["expiration_date"] . " </td>\n";
-    echo "<td style=\"width: 10%;\"> $iplist </td>\n";
-    echo "<td> null </td>\n";
+    echo "<td style=\"width: 15%\"> " . $arr["istance_remark"] . " </td>\n";
+    echo "<td style=\"width: 15%\"> " . $arr["creation_date"] . " </td>\n"; 
+    echo "<td style=\"width: 15%\"> " . $arr["expiration_date"] . " </td>\n";
+    echo "<td style=\"width: 15%\"> " . $arr["description"] . " </td>\n";
+    echo "<td> $iplist </td>\n";
     echo "</tr>\n";
 }
 
