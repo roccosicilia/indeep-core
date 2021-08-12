@@ -5,6 +5,7 @@
 
 from urllib import urlopen
 import json
+import sys
 import mysql.connector
 
 # config file
@@ -22,14 +23,15 @@ results = cursor.fetchall()
 for result in results:
   # DEBUG
   # print("CEV ID: {0}.".format(result[1]))
-
-  infoj = json.dumps(result[7].replace('\"', '"'))
+  #infoj = json.dumps(result[7].replace('\"', '"'))
   #infoj = json.loads(str(infoj))
+
+  info = result[7].json()
   
   # DEBUG
-  if infoj != None:
-    print("cpe: {}".format(infoj))
-    print(type(infoj))
+  if info != None:
+    print("cpe: {}".format(info['cpe']))
+    print(type(info))
 
   # DEBUG
   # print("{0} {1}".format(info["cpe"], info["Description"]))
