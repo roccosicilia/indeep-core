@@ -28,7 +28,7 @@ for result in results:
   
   # DEBUG
   if infoj != None:
-    print("cpe: {}".format(infoj["cpe"]))
+    print("cpe: {}".format(infoj))
 
   # DEBUG
   # print("{0} {1}".format(info["cpe"], info["Description"]))
