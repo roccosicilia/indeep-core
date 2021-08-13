@@ -24,12 +24,9 @@ for result in results:
   print("### CPE for {} ################################################".format(result[1]))
   cpe_list = result[5].split(",")
   for cpe in cpe_list:
-    print(cpe)
-
-'''
-  if result[7] != None:
-    info = json.loads(result[7])[0]
-    if info['cpe'] != 'set':
-      cpe_list = result[5].split(",")
-      print(cpe_list)
-'''
+    # check if CPE is present
+    sql_cpe = "SELECT * FROM `cpe` WHERE `cpe_id` = '{0}' AND `cpe_string` = '{}'".format(result[0], cpe)
+    cursor.execute(sql_cpe)
+    num_items = cursor.fetchone()
+    print(num_items[0])
+    
