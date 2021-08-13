@@ -16,7 +16,7 @@ connection = mysql.connector.connect(host=static["db_host"], user=static["db_use
 cursor = connection.cursor()
 
 # get cve whit unset cpe
-sql_cve = "SELECT * FROM `cve` WHERE `cpe_list` != Null AND `cpe_set` = Null ORDER BY `id`"
+sql_cve = "SELECT * FROM `cve` WHERE `cpe_list` != '' AND `cpe_set` IS NULL ORDER BY `id`"
 cursor.execute(sql_cve)
 results = cursor.fetchall()
 
