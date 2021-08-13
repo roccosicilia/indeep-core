@@ -25,7 +25,7 @@ for result in results:
   cpe_list = result[5].split(",")
   for cpe in cpe_list:
     # check if CPE is present
-    sql_cpe = "SELECT * FROM `cpe` WHERE `cpe_id` = '{0}' AND `cpe_string` = '{1}'".format(result[0], cpe)
+    sql_cpe = "SELECT * FROM `cpe` WHERE `cve` = '{0}' AND `cpe_string` = '{1}'".format(result[0], cpe)
     cursor.execute(sql_cpe)
     num_items = cursor.fetchone()
     print(num_items[0])
