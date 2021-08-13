@@ -25,4 +25,4 @@ for result in results:
     info = json.dumps(result[7], ensure_ascii=False)
     info_json = json.loads(info)
     print(type(info_json))
-    print(info_json)
+    print(info_json['Description'])
