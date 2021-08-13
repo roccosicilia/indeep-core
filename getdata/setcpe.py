@@ -32,6 +32,8 @@ for result in results:
   if info != None:
     print(info)
     print(type(info))
+    cpe = str(info[0]['cpe'])
+    print(cpe)
 
   # DEBUG
   # print("{0} {1}".format(info["cpe"], info["Description"]))
