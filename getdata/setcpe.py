@@ -21,4 +21,5 @@ cursor.execute(sql_cve)
 results = cursor.fetchall()
 
 for result in results:
-  print(result[7])
+  if result[7] != None:
+    print(type(result[7]))
