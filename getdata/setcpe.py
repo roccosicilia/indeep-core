@@ -19,9 +19,6 @@ cursor = connection.cursor()
 sql_cve = "SELECT * FROM `cve` ORDER BY `id`"
 cursor.execute(sql_cve)
 results = cursor.fetchall()
-data = json.dumps(results)
-info = json.loads(data)
 
-for a in info:
-  if a != None:
-    print(a['cpe'])
+for result in results:
+  print(result)
