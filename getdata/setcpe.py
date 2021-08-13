@@ -23,5 +23,6 @@ results = cursor.fetchall()
 for result in results:
   if result[7] != None:
     info = json.dumps(result[7], ensure_ascii=False)
-    print(type(info))
-    print(info[0]["cpe"])
+    info_json = json.loads(info)
+    print(type(info_json))
+    print(info_json["cpe"])
