@@ -21,7 +21,10 @@ cursor.execute(sql_cve)
 results = cursor.fetchall()
 
 for result in results:
-  print(result)
+  print("### CPE for {} ################################################".format(result[1]))
+  cpe_list = result[5].split(",")
+  for cpe in cpe_list:
+    print(cpe)
 
 '''
   if result[7] != None:
