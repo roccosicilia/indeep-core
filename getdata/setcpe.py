@@ -24,4 +24,4 @@ for result in results:
   if result[7] != None:
     info = json.dumps(result[7], ensure_ascii=False)
     print(type(info))
-    print(info[0])
+    print(info[0]["cpe"])
