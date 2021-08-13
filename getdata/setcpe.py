@@ -28,4 +28,4 @@ for result in results:
     sql_cpe = "SELECT * FROM `cpe` WHERE `cve` = '{0}' AND `cpe_string` = '{1}'".format(result[0], cpe)
     cursor.execute(sql_cpe)
     num_items = cursor.fetchone()
-    print(num_items[0])
+    print(num_items)
