@@ -22,6 +22,6 @@ results = cursor.fetchall()
 
 for result in results:
   if result[7] != None:
-    info_json = json.loads(result[7])[0]
-    print(type(info_json))
-    print(info_json['Description'])
+    info = json.loads(result[7])[0]
+    if info["cpe"] != 'set':
+      print(result[5])
