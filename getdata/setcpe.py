@@ -22,4 +22,5 @@ results = cursor.fetchall()
 
 for result in results:
   if result[7] != None:
-    print(type(result[7]))
+    info = json.dumps(result[7]), ensure_ascii=False)
+    print(type(info))
