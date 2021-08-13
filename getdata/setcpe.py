@@ -21,19 +21,8 @@ cursor.execute(sql_cve)
 results = cursor.fetchall()
 
 for result in results:
-  # DEBUG
-  # print("CEV ID: {0}.".format(result[1]))
-  #infoj = json.dumps(result[7].replace('\"', '"'))
-  #infoj = json.loads(str(infoj))
-
   info = json.dumps(result[7])
   info = json.loads(info)
  
   if info != None:
     print(info)
-    print(type(info))
-    cpe = str(info[0])
-    print(cpe["cpe"])
-
-  # DEBUG
-  # print("{0} {1}".format(info["cpe"], info["Description"]))
