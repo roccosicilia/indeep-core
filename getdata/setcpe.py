@@ -31,7 +31,7 @@ for result in results:
     if num_items[0] == 0:
       # add CPE to DB
       cpe_data = cpe.split(":")
-      sql_cpe_add = "INSERT INTO `cpe` (`cve`, `cpe_string`, `vendor`, `product`, `version`, `update`, `edition`, `language`, `sw_edition`, `target_sw`, `target_hw`, `other`) VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(result[0], cpe, cpe_data[3], cpe_data[4], cpe_data[5], cpe_data[6], cpe_data[7], cpe_data[8], cpe_data[9], cpe_data[10], cpe_data[11])
+      sql_cpe_add = "INSERT INTO `cpe` (`cve`, `cpe_string`, `vendor`, `product`, `version`, `update`, `edition`, `language`, `sw_edition`, `target_sw`, `target_hw`) VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(result[0], cpe, cpe_data[3], cpe_data[4], cpe_data[5], cpe_data[6], cpe_data[7], cpe_data[8], cpe_data[9], cpe_data[10], cpe_data[11])
       cursor.execute(sql_cpe_add)
       print("++++++ CPE {} add to DB".format(cpe))
     else:
