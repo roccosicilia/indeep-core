@@ -20,6 +20,7 @@ sql_cve = "SELECT * FROM `cve` ORDER BY `id`"
 cursor.execute(sql_cve)
 results = cursor.fetchall()
 data = json.dumps(results)
+data = json.loads(data)
 
 for info in data:
   if info != None:
