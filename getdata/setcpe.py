@@ -32,7 +32,7 @@ for result in results:
   if info != None:
     print(info)
     print(type(info))
-    cpe = str(info[0]['cpe'])
+    cpe = str(info[0])
     print(cpe)
 
   # DEBUG
