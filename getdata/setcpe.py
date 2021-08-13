@@ -21,6 +21,7 @@ cursor.execute(sql_cve)
 results = cursor.fetchall()
 
 for result in results:
-  info = json.loads(result[7])[0]
-  if info['cpe'] != 'set':
-    print(result[5])
+  if result[7] != None:
+    info = json.loads(result[7])[0]
+    if info['cpe'] != 'set':
+      print(result[5])
