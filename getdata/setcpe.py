@@ -25,4 +25,4 @@ for result in results:
   info = json.loads(info)
  
   if info != None:
-    print(info)
+    print(info['cpe'])
