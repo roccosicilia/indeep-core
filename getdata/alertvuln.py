@@ -18,8 +18,18 @@ cursor = connection.cursor()
 # get istance to check
 sql_istance = "SELECT DISTINCT `istance_remark` FROM `rule_vulnerability`"
 cursor.execute(sql_istance)
-results = cursor.fetchall()
+istances = cursor.fetchall()
 
-for result in results:
-    print(result[0])
+for istance in istances:
+    
+    print("##################################################")
+    print("## Check VULN(s) for istance {0}".format(istance[0]))
 
+    # define cpe for istance
+    sql_cpe = "SELECT * FROM `rule_vulnerability` WHERE `istance_remark` = '{}' ORDER BY `id`".format(istance[1])
+    cursor.execute(sql_cpe)
+    cpe_list = cursor.fetchall()
+
+    for cpe in cpe_list:
+        print("## Identified cpe {}:{}".format(cpe[3], cpe[4]))
+        
