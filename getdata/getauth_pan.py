@@ -8,5 +8,5 @@ import json
 import mysql.connector
 import sys
 import requests
-import xmltodict
+# import xmltodict
 
