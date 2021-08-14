@@ -16,7 +16,7 @@ connection = mysql.connector.connect(host=static["db_host"], user=static["db_use
 cursor = connection.cursor()
 
 # get istance to check
-sql_istance = "SELECT DISTINCT `istance_remark` FROM `rule_vulnerability` ORDER BY `id`"
+sql_istance = "SELECT DISTINCT `istance_remark` FROM `rule_vulnerability`"
 cursor.execute(sql_istance)
 results = cursor.fetchall()
 
