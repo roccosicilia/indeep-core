@@ -16,7 +16,7 @@ connection = mysql.connector.connect(host=static["db_host"], user=static["db_use
 cursor = connection.cursor()
 
 # get cve whit unset cpe
-sql_cve = "SELECT * FROM `cve` WHERE `cpe_list` != '' AND `cpe_set` IS NULL ORDER BY `id`"
+sql_cve = "SELECT * FROM `cve` WHERE `cpe_list` != '' AND `cpe_set` != 'set' ORDER BY `id`"
 cursor.execute(sql_cve)
 results = cursor.fetchall()
 
@@ -35,6 +35,9 @@ for result in results:
       if len(cpe_data) == 13:
         sql_cpe_add = "INSERT INTO `cpe` (`cve`, `cpe_string`, `vendor`, `product`, `version`, `update`, `edition`, `language`, `sw_edition`, `target_sw`, `target_hw`, `other`) VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(result[0], cpe, cpe_data[3], cpe_data[4], cpe_data[5], cpe_data[6], cpe_data[7], cpe_data[8], cpe_data[9], cpe_data[10], cpe_data[11], cpe_data[12])
         cursor.execute(sql_cpe_add)
+        connection.commit()
+        sql_cpe_set = "UPDATE `cpe` SET `cpe_set` = 'set' WHERE `id` = {0}".format(result[0])
+        cursor.execute(sql_cpe_set)
         connection.commit()
         print("++++++ CPE {} add to DB".format(cpe))
       else:
