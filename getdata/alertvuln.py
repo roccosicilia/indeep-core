@@ -26,7 +26,7 @@ for istance in istances:
     print("## Check VULN(s) for istance {0}".format(istance[0]))
 
     # define cpe for istance
-    sql_cpe = "SELECT * FROM `rule_vulnerability` WHERE `istance_remark` = '{}' ORDER BY `id`".format(istance[1])
+    sql_cpe = "SELECT * FROM `rule_vulnerability` WHERE `istance_remark` = '{}' ORDER BY `id`".format(istance[0])
     cursor.execute(sql_cpe)
     cpe_list = cursor.fetchall()
 
