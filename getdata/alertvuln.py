@@ -38,4 +38,15 @@ for istance in istances:
         cve_list = cursor.fetchall()
 
         for cve in cve_list:
-            print("CVE {} with score {} for {}:{}".format(cve[1], cve[2], cpe[3], cpe[4]))
+            # print("CVE {0} with score {1} for {2}:{3}".format(cve[1], cve[2], cpe[3], cpe[4]))
+
+            # add in alert_cve table
+            sql_check_alert = "SELECT COUNT(*) FROM `alert_cve` WHERE `istance` = '{0}' AND `cve` = '{1}' ORDER BY `id`".format(istance[0], cve[1])
+            cursor.execute(sql_check_alert)
+            num_items = cursor.fetchone()
+            if num_items[0] == 0:
+                # add alert
+                print("++ CVE {0} with score {1} for {2}:{3}: add to alert table".format(cve[1], cve[2], cpe[3], cpe[4]))
+            else:
+                # skip
+                print("-- CVE {0} with score {1} for {2}:{3}: record exist".format(cve[1], cve[2], cpe[3], cpe[4]))
