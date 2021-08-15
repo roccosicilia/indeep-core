@@ -7,6 +7,7 @@ from urllib import urlopen
 import json
 import sys
 import mysql.connector
+from datetime import date
 
 # config file
 static = json.load(open("./config.json"))
@@ -46,7 +47,12 @@ for istance in istances:
             num_items = cursor.fetchone()
             if num_items[0] == 0:
                 # add alert
+                today = date.today()
+                creation_date = today.strftime("%Y-%m-%d")
                 print("++ CVE {0} with score {1} for {2}:{3}: add to alert table".format(cve[1], cve[2], cpe[3], cpe[4]))
+                sql_alert = "INSERT INTO `alert_cve` (`type`, `istance`, `cve`, `cpe`, `creation_date`) VALUES ('{}', '{}', '{}', '{}', '{}')".format('vuln', cve[1], cpe[3]+':'+cpe[4], creation_date)
+                cursor.execute(sql_alert)
+                connection.commit()
             else:
                 # skip
                 print("-- CVE {0} with score {1} for {2}:{3}: record exist".format(cve[1], cve[2], cpe[3], cpe[4]))
