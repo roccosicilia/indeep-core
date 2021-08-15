@@ -50,7 +50,7 @@ for istance in istances:
                 today = date.today()
                 creation_date = today.strftime("%Y-%m-%d")
                 print("++ CVE {0} with score {1} for {2}:{3}: add to alert table".format(cve[1], cve[2], cpe[3], cpe[4]))
-                sql_alert = "INSERT INTO `alert_cve` (`type`, `istance`, `cve`, `cpe`, `creation_date`) VALUES ('{}', '{}', '{}', '{}', '{}')".format('vuln', cve[1], cpe[3]+':'+cpe[4], creation_date)
+                sql_alert = "INSERT INTO `alert_cve` (`type`, `istance`, `cve`, `cpe`, `creation_date`) VALUES ('{}', '{}', '{}', '{}', '{}')".format('vuln', istance[0], cve[1], cpe[3]+':'+cpe[4], creation_date)
                 cursor.execute(sql_alert)
                 connection.commit()
             else:
