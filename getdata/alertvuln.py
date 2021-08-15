@@ -39,3 +39,4 @@ for istance in istances:
 
         for cve in cve_list:
             print("CVE {} with score {} for {}:{}".format(cve[1], cve[2], cpe[3], cpe[4]))
+            
