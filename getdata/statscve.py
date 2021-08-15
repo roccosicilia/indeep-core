@@ -28,6 +28,6 @@ cursor.execute(sql_cve)
 num_items = cursor.fetchone()
 num_cve = num_items[0]
 
-sql_cve_stat = "INSER INTO `cve_stats` (`name`, `date`, `a_name`, `a_value`) VALUES ('{}', '{}', '{}', '{}')".format('CVE per Day', check_date, 'cve(s)', num_cve)
+sql_cve_stat = "INSERT INTO `cve_stats` (`name`, `date`, `a_name`, `a_value`) VALUES ('{}', '{}', '{}', '{}')".format('CVE per Day', check_date, 'cve(s)', num_cve)
 cursor.execute(sql_cve_stat)
 connection.commit()
