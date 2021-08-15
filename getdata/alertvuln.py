@@ -33,6 +33,9 @@ for istance in istances:
     for cpe in cpe_list:
         print("## Identified cpe {}:{}".format(cpe[3], cpe[4]))
         # check vuln for cpe_list
-        sql_cve = "SELECT * FROM `cve` WHERE `cpe_list` LIKE '{0}:{1}' ORDER BY `cve`"
+        sql_cve = "SELECT * FROM `cve` WHERE `cpe_list` LIKE '{0}:{1}' ORDER BY `cve`".format(cpe[3], cpe[4])
         cursor.execute(sql_cve)
-        cve_list: 
+        cve_list = cursor.fetchall()
+
+        for cve in cve_list:
+            print("CVE {} with score {} for {}:{}".format(cve[1], cve[2], cpe[3], cpe[4]))
