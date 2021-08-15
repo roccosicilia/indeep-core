@@ -35,7 +35,7 @@ echo "</tr>\n";
 echo "</thead>\n";
 echo "<tbody>\n";
 
-$sql = "SELECT * FROM `cve` WHERE `cvss` >= 9 AND `asread` IS NULL ORDER BY `id` DESC LIMIT 10";
+$sql = "SELECT * FROM `cve` WHERE `cvss` >= 9 AND `asread` IS NULL ORDER BY `id` DESC LIMIT 0,5";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
@@ -93,7 +93,7 @@ echo "</tr>\n";
 echo "</thead>\n";
 echo "<tbody>\n";
 
-$sql = "SELECT * FROM `cve` WHERE `asread` IS NOT NULL ORDER BY `id` DESC LIMIT 10";
+$sql = "SELECT * FROM `cve` WHERE `asread` IS NOT NULL ORDER BY `id` DESC LIMIT 0,5";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
