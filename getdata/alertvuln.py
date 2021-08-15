@@ -36,9 +36,6 @@ for istance in istances:
         sql_cve = "SELECT * FROM `cve` WHERE `cpe_list` LIKE '%{0}:{1}%' ORDER BY `id`".format(cpe[3], cpe[4])
         cursor.execute(sql_cve)
         cve_list = cursor.fetchall()
-        
-        # debug
-        print(sql_cve)
 
         for cve in cve_list:
             print("CVE {} with score {} for {}:{}".format(cve[1], cve[2], cpe[3], cpe[4]))
