@@ -31,8 +31,9 @@ echo "</div>\n";
 echo "<script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\n";
 
 echo "<script>\n";
-echo "const labels = [\n";
 
+// setup start
+echo "const labels = [\n";
 // 'January', 'February', 'March', 'April', 'May', 'June',
 $sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
 $res_cve = mysqli_query($dbconn, $sql_cve);
@@ -90,13 +91,34 @@ while($arr_cve = mysqli_fetch_assoc($res_cve))
 echo "],\n";
 echo "}]\n";
 
-echo "};\n"; // end const
+echo "};\n";
+// end const data
 
+
+// echo "const config = {\n";
+// echo "type: 'line',\n";
+// echo "data,\n";
+// echo "options: {}\n";
+// echo "};\n";
+
+// start const config
 echo "const config = {\n";
 echo "type: 'line',\n";
-echo "data,\n";
-echo "options: {}\n";
+echo "data: data,\n";
+echo "options: {\n";
+echo "responsive: true,\n";
+echo "plugins: {\n";
+echo "legend: {\n";
+echo "position: 'top',\n";
+echo "},\n";
+echo "title: {\n";
+echo "display: true,\n";
+echo "text: 'CVE stats'\n";
+echo "}\n";
+echo "}\n";
+echo "},\n";
 echo "};\n";
+// end const config
 
 echo "var cve_stats_chart = new Chart(\n";
 echo "document.getElementById('cve_stats_chart'),\n";
