@@ -21,7 +21,7 @@ echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
 echo "<div class=\"card-body\">\n";
 
-echo "<div><canvas id=\"myChart\"></canvas></div>\n";
+echo "<div><canvas id=\"cve_stats_chart\"></canvas></div>\n";
 
 echo "</div>\n";
 echo "</div>\n";
@@ -49,7 +49,7 @@ echo "];\n";
 echo "const data = {\n";
 echo "labels: labels,\n";
 echo "datasets: [{\n";
-echo "label: 'My First dataset',\n";
+echo "label: 'CVE stats',\n";
 echo "backgroundColor: 'rgb(255, 99, 132)',\n";
 echo "borderColor: 'rgb(255, 99, 132)',\n";
 echo "data: [\n";
@@ -75,8 +75,8 @@ echo "data,\n";
 echo "options: {}\n";
 echo "};\n";
 
-echo "var myChart = new Chart(\n";
-echo "document.getElementById('myChart'),\n";
+echo "var cve_stats_chart = new Chart(\n";
+echo "document.getElementById('cve_stats_chart'),\n";
 echo "config\n";
 echo ");\n";
 echo "</script>\n";
