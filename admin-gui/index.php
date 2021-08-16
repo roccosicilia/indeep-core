@@ -53,12 +53,9 @@ echo "</script>\n";
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
 echo "<div class=\"card-body\">\n";
-// echo "<h4 class=\"card-title\">CVE per day</h4>\n";
-echo "<div class=\"table-responsive\">\n";
 
 echo "<div id=\"curve_chart\" style=\"width: 1200px; height: 300px\"></div>\n";
 
-echo "</div>\n";
 echo "</div>\n";
 echo "</div>\n";
 echo "</div>\n";
