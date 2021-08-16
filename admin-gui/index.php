@@ -16,17 +16,6 @@ tmpl_nav($_SESSION["username"], "Dashboard");
 tmpl_sidebar();
 tmpl_body();
 
-// CVE stats: graph visualization
-echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
-echo "<div class=\"card\">\n";
-echo "<div class=\"card-body\">\n";
-
-echo "<div><canvas id=\"cve_stats_chart\" style=\"height:30vh; width:90vw\"></canvas></div>\n";
-
-echo "</div>\n";
-echo "</div>\n";
-echo "</div>\n";
-
 // CVE stats :: graph generation
 echo "<script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>\n";
 echo "<script type=\"text/javascript\">\n";
@@ -45,7 +34,7 @@ while($arr_cve = mysqli_fetch_assoc($res_cve))
     $day = $arr_cve["date"];
     $a_value = $arr_cve["a_value"];
     $b_value = $arr_cve["b_value"];
-    echo "['$day', '$a_value', '$b_value'],";
+    echo "['$day', '$a_value', '$b_value'],\n";
 }
 
 echo "]);\n";
@@ -58,6 +47,17 @@ echo "var chart = new google.visualization.LineChart(document.getElementById('cv
 echo "chart.draw(data, options);\n";
 echo "}\n";
 echo "</script>\n";
+
+// CVE stats: graph visualization
+echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
+echo "<div class=\"card\">\n";
+echo "<div class=\"card-body\">\n";
+
+echo "<div id=\"cve_stats_chart\" style=\"width: 90vw; height: 30vh;\"></div>\n";
+
+echo "</div>\n";
+echo "</div>\n";
+echo "</div>\n";
 
 tmpl_footer();
 
