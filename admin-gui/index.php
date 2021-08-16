@@ -40,7 +40,7 @@ while($arr_cve = mysqli_fetch_assoc($res_cve))
 {
     $day = $arr_cve["date"];
     $a_value = $arr_cve["a_value"];
-    $b_value = 0;
+    $b_value = $arr_cve["b_value"];
     echo "'$day', ";
 }
 
@@ -48,12 +48,14 @@ echo "];\n";
 
 echo "const data = {\n";
 echo "labels: labels,\n";
-echo "datasets: [{\n";
-echo "label: 'CVE stats',\n";
-echo "backgroundColor: 'rgb(255, 99, 132)',\n";
-echo "borderColor: 'rgb(255, 99, 132)',\n";
+echo "datasets: [\n";
+
+// dataset_1
+echo "{\n";
+echo "label: 'All CVE',\n";
+echo "backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),\n";
+echo "borderColor: Utils.CHART_COLORS.blue,\n";
 echo "data: [\n";
-    
 // 0, 10, 5, 2, 20, 30, 45
 $sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
 $res_cve = mysqli_query($dbconn, $sql_cve);
@@ -61,13 +63,34 @@ while($arr_cve = mysqli_fetch_assoc($res_cve))
 {
     $day = $arr_cve["date"];
     $a_value = $arr_cve["a_value"];
-    $b_value = 0;
+    $b_value = $arr_cve["b_value"];
     echo "'$a_value', ";
 }
 
 echo "],\n";
 echo "}]\n";
-echo "};\n";
+
+// dataset_2
+echo "{\n";
+echo "label: 'cvssOver9',\n";
+echo "backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),\n";
+echo "borderColor: Utils.CHART_COLORS.red,\n";
+echo "data: [\n";
+// 0, 10, 5, 2, 20, 30, 45
+$sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'overnine' ORDER BY id ASC LIMIT 0,28";
+$res_cve = mysqli_query($dbconn, $sql_cve);
+while($arr_cve = mysqli_fetch_assoc($res_cve))
+{
+    $day = $arr_cve["date"];
+    $a_value = $arr_cve["a_value"];
+    $b_value = $arr_cve["b_value"];
+    echo "'$b_value', ";
+}
+
+echo "],\n";
+echo "}]\n";
+
+echo "};\n"; // end const
 
 echo "const config = {\n";
 echo "type: 'line',\n";
