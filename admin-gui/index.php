@@ -78,13 +78,13 @@ echo "backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),\n";
 echo "borderColor: Utils.CHART_COLORS.red,\n";
 echo "data: [\n";
 // 0, 10, 5, 2, 20, 30, 45
-$sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
-$res_cve = mysqli_query($dbconn, $sql_cve_overnine);
-while($arr_cve = mysqli_fetch_assoc($res_cve))
+$sql_cve_o9 = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
+$res_cve_o9 = mysqli_query($dbconn, $sql_cve_o9);
+while($arr_cve_o9 = mysqli_fetch_assoc($res_cve_o9))
 {
-    $day = $arr_cve["date"];
-    $a_value = $arr_cve["a_value"];
-    $b_value = $arr_cve["b_value"];
+    $day = $arr_cve_o9["date"];
+    $a_value = $arr_cve_o9["a_value"];
+    $b_value = $arr_cve_o9["b_value"];
     echo "'$b_value', ";
 }
 
