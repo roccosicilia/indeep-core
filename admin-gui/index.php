@@ -17,17 +17,12 @@ tmpl_sidebar();
 tmpl_body();
 
 // CVE stats :: graph generation
-echo "<script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>\n";
-echo "<script type=\"text/javascript\">\n";
-echo "google.charts.load('current', {'packages':['corechart']});\n";
-echo "google.charts.setOnLoadCallback(drawChart);\n";
-echo "function drawChart() {\n";
-echo "var data = google.visualization.arrayToDataTable([\n";
-echo "['Day', 'All CVE', 'CVE cvss > 9'],\n";
+echo "<script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\n";
 
-// format   ['2004',  1000,      400],
-// format   ['2007',  1030,      540]
+echo "<script>\n";
+echo "const labels = [\n";
 
+// 'January', 'February', 'March', 'April', 'May', 'June',
 $sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
 $res_cve = mysqli_query($dbconn, $sql_cve);
 while($arr_cve = mysqli_fetch_assoc($res_cve))
@@ -35,26 +30,51 @@ while($arr_cve = mysqli_fetch_assoc($res_cve))
     $day = $arr_cve["date"];
     $a_value = $arr_cve["a_value"];
     $b_value = 0;
-    echo "['$day', $a_value, $b_value],";
+    echo "'$day', ";
 }
 
-echo "]);\n";
-echo "var options = {\n";
-echo "title: 'CVE stats',\n";
-echo "curveType: 'function',\n";
-echo "legend: { position: 'bottom' }\n";
+echo "];\n";
+
+echo "const data = {\n";
+echo "labels: labels,\n";
+echo "datasets: [{\n";
+echo "label: 'My First dataset',\n";
+echo "backgroundColor: 'rgb(255, 99, 132)',\n";
+echo "borderColor: 'rgb(255, 99, 132)',\n";
+echo "data: [\n";
+    
+// 0, 10, 5, 2, 20, 30, 45
+$sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
+$res_cve = mysqli_query($dbconn, $sql_cve);
+while($arr_cve = mysqli_fetch_assoc($res_cve))
+{
+    $day = $arr_cve["date"];
+    $a_value = $arr_cve["a_value"];
+    $b_value = 0;
+    echo "'$a_value', ";
+}
+
+echo "],\n";
+echo "}]\n";
 echo "};\n";
-echo "var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));\n";
-echo "chart.draw(data, options);\n";
-echo "}\n";
-echo "</script>\n";
+
+echo "const config = {\n";
+echo "type: 'line',\n";
+echo "data,\n";
+echo "options: {}\n";
+echo "};\n";
+
+echo "var myChart = new Chart(\n";
+echo "document.getElementById('myChart'),\n";
+echo "config\n";
+echo ");\n";
 
 // CVE stats: graph visualization
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
 echo "<div class=\"card-body\">\n";
 
-echo "<div id=\"curve_chart\" style=\"width: 1400px; height: 300px\"></div>\n";
+echo "<div><canvas id=\"myChart\"></canvas></div>\n";
 
 echo "</div>\n";
 echo "</div>\n";
