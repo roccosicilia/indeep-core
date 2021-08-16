@@ -28,7 +28,7 @@ cursor.execute(sql_cve)
 num_items = cursor.fetchone()
 num_cve = num_items[0]
 
-sql_cve_overnine = "SELECT COUNT(*) FROM `cve` WHERE `date_modified` LIKE '{}%' AND `cvss` => '9'".format(check_date)
+sql_cve_overnine = "SELECT COUNT(*) FROM `cve` WHERE `date_modified` LIKE '{}%' AND `cvss` >= '9'".format(check_date)
 cursor.execute(sql_cve_overnine)
 num_items = cursor.fetchone()
 num_cve_overnine = num_items[0]
