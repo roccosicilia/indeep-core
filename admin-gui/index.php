@@ -16,6 +16,17 @@ tmpl_nav($_SESSION["username"], "Dashboard");
 tmpl_sidebar();
 tmpl_body();
 
+// CVE stats: graph visualization
+echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
+echo "<div class=\"card\">\n";
+echo "<div class=\"card-body\">\n";
+
+echo "<div><canvas id=\"myChart\"></canvas></div>\n";
+
+echo "</div>\n";
+echo "</div>\n";
+echo "</div>\n";
+
 // CVE stats :: graph generation
 echo "<script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\n";
 
@@ -69,17 +80,6 @@ echo "document.getElementById('myChart'),\n";
 echo "config\n";
 echo ");\n";
 echo "</script>\n";
-
-// CVE stats: graph visualization
-echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
-echo "<div class=\"card\">\n";
-echo "<div class=\"card-body\">\n";
-
-echo "<div><canvas id=\"myChart\"></canvas></div>\n";
-
-echo "</div>\n";
-echo "</div>\n";
-echo "</div>\n";
 
 tmpl_footer();
 
