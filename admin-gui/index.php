@@ -28,13 +28,16 @@ echo "</div>\n";
 echo "</div>\n";
 
 // CVE stats :: graph generation
-echo "<script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\n";
+echo "<script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>\n";
+echo "<script type=\"text/javascript\">\n";
+echo "google.charts.load('current', {'packages':['corechart']});\n";
+echo "google.charts.setOnLoadCallback(drawChart);\n";
 
-echo "<script>\n";
+echo "function drawChart() {\n";
+echo "var data = google.visualization.arrayToDataTable([\n";
+echo "['Day', 'CVE', 'CVSS 9'],\n";
 
-// setup start
-echo "const labels = [\n";
-// 'January', 'February', 'March', 'April', 'May', 'June',
+// ['2004',  1000,      400],
 $sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
 $res_cve = mysqli_query($dbconn, $sql_cve);
 while($arr_cve = mysqli_fetch_assoc($res_cve))
@@ -42,88 +45,18 @@ while($arr_cve = mysqli_fetch_assoc($res_cve))
     $day = $arr_cve["date"];
     $a_value = $arr_cve["a_value"];
     $b_value = $arr_cve["b_value"];
-    echo "'$day', ";
+    echo "['$day', '$a_value', '$b_value'],";
 }
 
-echo "];\n";
-
-echo "const data = {\n";
-echo "labels: labels,\n";
-echo "datasets: [\n";
-
-// dataset_1
-echo "{\n";
-echo "label: 'All CVE',\n";
-echo "backgroundColor: 'rgb(255, 99, 132)',\n";
-echo "borderColor: 'rgb(255, 99, 132)',\n";
-echo "data: [\n";
-// 0, 10, 5, 2, 20, 30, 45
-$sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
-$res_cve = mysqli_query($dbconn, $sql_cve);
-while($arr_cve = mysqli_fetch_assoc($res_cve))
-{
-    $day = $arr_cve["date"];
-    $a_value = $arr_cve["a_value"];
-    $b_value = $arr_cve["b_value"];
-    echo "'$a_value', ";
-}
-
-echo "],\n";
-echo "}]\n";
-
-// dataset_2
-echo "{\n";
-echo "label: 'cvssOver9',\n";
-echo "backgroundColor: 'rgb(255, 99, 132)',\n";
-echo "borderColor: 'rgb(255, 99, 132)',\n";
-echo "data: [\n";
-// 0, 10, 5, 2, 20, 30, 45
-$sql_cve_o9 = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
-$res_cve_o9 = mysqli_query($dbconn, $sql_cve_o9);
-while($arr_cve_o9 = mysqli_fetch_assoc($res_cve_o9))
-{
-    $day = $arr_cve_o9["date"];
-    $a_value = $arr_cve_o9["a_value"];
-    $b_value = $arr_cve_o9["b_value"];
-    echo "'$b_value', ";
-}
-
-echo "],\n";
-echo "}]\n";
-
+echo "]);\n";
+echo "var options = {\n";
+echo "title: 'CVE stats',\n";
+echo "curveType: 'function',\n";
+echo "legend: { position: 'bottom' }\n";
 echo "};\n";
-// end const data
-
-
-// echo "const config = {\n";
-// echo "type: 'line',\n";
-// echo "data,\n";
-// echo "options: {}\n";
-// echo "};\n";
-
-// start const config
-echo "const config = {\n";
-echo "type: 'line',\n";
-echo "data: data,\n";
-echo "options: {\n";
-echo "responsive: true,\n";
-echo "plugins: {\n";
-echo "legend: {\n";
-echo "position: 'top',\n";
-echo "},\n";
-echo "title: {\n";
-echo "display: true,\n";
-echo "text: 'CVE stats'\n";
+echo "var chart = new google.visualization.LineChart(document.getElementById('cve_stats_chart'));\n";
+echo "chart.draw(data, options);\n";
 echo "}\n";
-echo "}\n";
-echo "},\n";
-echo "};\n";
-// end const config
-
-echo "var cve_stats_chart = new Chart(\n";
-echo "document.getElementById('cve_stats_chart'),\n";
-echo "config\n";
-echo ");\n";
 echo "</script>\n";
 
 tmpl_footer();
