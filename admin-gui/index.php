@@ -54,8 +54,8 @@ echo "datasets: [\n";
 // dataset_1
 echo "{\n";
 echo "label: 'All CVE',\n";
-echo "backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),\n";
-echo "borderColor: Utils.CHART_COLORS.blue,\n";
+echo "backgroundColor: 'rgb(255, 99, 132)',\n";
+echo "borderColor: 'rgb(255, 99, 132)',\n";
 echo "data: [\n";
 // 0, 10, 5, 2, 20, 30, 45
 $sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
@@ -74,8 +74,8 @@ echo "}]\n";
 // dataset_2
 echo "{\n";
 echo "label: 'cvssOver9',\n";
-echo "backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),\n";
-echo "borderColor: Utils.CHART_COLORS.red,\n";
+echo "backgroundColor: 'rgb(255, 99, 132)',\n";
+echo "borderColor: 'rgb(255, 99, 132)',\n";
 echo "data: [\n";
 // 0, 10, 5, 2, 20, 30, 45
 $sql_cve_o9 = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
