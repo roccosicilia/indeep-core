@@ -34,7 +34,7 @@ while($arr_cve = mysqli_fetch_assoc($res_cve))
     $day = $arr_cve["date"];
     $a_value = $arr_cve["a_value"];
     $b_value = $arr_cve["b_value"];
-    echo "['$day', '$a_value', '$b_value'],\n";
+    echo "['$day', $a_value, $b_value],\n";
 }
 
 echo "]);\n";
