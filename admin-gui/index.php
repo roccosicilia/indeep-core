@@ -68,6 +68,7 @@ echo "var myChart = new Chart(\n";
 echo "document.getElementById('myChart'),\n";
 echo "config\n";
 echo ");\n";
+echo "</script>\n";
 
 // CVE stats: graph visualization
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
