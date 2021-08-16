@@ -21,7 +21,7 @@ echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
 echo "<div class=\"card-body\">\n";
 
-echo "<div><canvas id=\"cve_stats_chart\"></canvas></div>\n";
+echo "<div><canvas id=\"cve_stats_chart\" style=\"height:30vh; width:90vw\"></canvas></div>\n";
 
 echo "</div>\n";
 echo "</div>\n";
