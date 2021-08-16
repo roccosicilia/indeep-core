@@ -51,11 +51,11 @@ echo "</script>\n";
 // CVE stats: graph visualization
 /// echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 // echo "<div class=\"card\">\n";
-echo "<div class=\"card-body\">\n";
+// echo "<div class=\"card-body\">\n";
 
 echo "<div id=\"cve_stats_chart\" style=\"width: 90vw; height: 30vh;\"></div>\n";
 
-echo "</div>\n";
+// echo "</div>\n";
 // echo "</div>\n";
 // echo "</div>\n";
 
