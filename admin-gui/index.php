@@ -24,7 +24,7 @@ echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
 echo "<div class=\"card-body\">\n";
 
-echo "<canvas id=\"line-chart\" style=\"width: 90%; height: 30%;\"></canvas>\n";
+echo "<canvas id=\"line-chart\" style=\"height: 200px\"></canvas>\n";
 
 echo "</div>\n";
 echo "</div>\n";
