@@ -16,17 +16,29 @@ tmpl_nav($_SESSION["username"], "Dashboard");
 tmpl_sidebar();
 tmpl_body();
 
+// include script
+echo "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script>\n";
+
 // CVE stats :: graph generation
-echo "<script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>\n";
-echo "<script type=\"text/javascript\">\n";
-echo "google.charts.load('current', {'packages':['corechart']});\n";
-echo "google.charts.setOnLoadCallback(drawChart);\n";
+echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
+echo "<div class=\"card\">\n";
+echo "<div class=\"card-body\">\n";
 
-echo "function drawChart() {\n";
-echo "var data = google.visualization.arrayToDataTable([\n";
-echo "['Day', 'CVE', 'CVSS 9'],\n";
+echo "<canvas id=\"line-chart\" width=\"800\" height=\"450\"></canvas>\n";
 
-// ['2004',  1000,      400],
+echo "</div>\n";
+echo "</div>\n";
+echo "</div>\n";
+
+echo "<script>\n";
+echo "new Chart(document.getElementById(\"line-chart\"), {\n";
+echo "type: 'line',\n";
+
+echo "data: {\n";
+echo "labels:\n";
+
+// [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+echo "[";
 $sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
 $res_cve = mysqli_query($dbconn, $sql_cve);
 while($arr_cve = mysqli_fetch_assoc($res_cve))
@@ -34,30 +46,45 @@ while($arr_cve = mysqli_fetch_assoc($res_cve))
     $day = $arr_cve["date"];
     $a_value = $arr_cve["a_value"];
     $b_value = $arr_cve["b_value"];
-    echo "['$day', $a_value, $b_value],\n";
+    echo "$day,";
 }
+echo "],\n";
 
-echo "]);\n";
-echo "var options = {\n";
-echo "title: 'CVE stats',\n";
-echo "curveType: 'function',\n";
-echo "legend: { position: 'bottom' }\n";
-echo "};\n";
-echo "var chart = new google.visualization.LineChart(document.getElementById('cve_stats_chart'));\n";
-echo "chart.draw(data, options);\n";
+echo "datasets: [{\n";
+echo "data: \n";
+
+// [86,114,106,106,107,111,133,221,783,2478],
+
+echo "label: \"All CVE\",\n";
+echo "borderColor: \"#3e95cd\",\n";
+echo "fill: false\n";
+echo "}, {\n";
+echo "data:\n";
+
+// [282,350,411,502,635,809,947,1402,3700,5267],
+
+echo "label: \"CVSS > 9\",\n";
+echo "borderColor: \"#8e5ea2\",\n";
+echo "fill: false\n";
 echo "}\n";
+echo "]\n";
+echo "},\n";
+echo "options: {\n";
+echo "title: {\n";
+echo "display: true,\n";
+echo "text: 'CVE stats'\n";
+echo "}\n";
+echo "}\n";
+echo "});\n";
 echo "</script>\n";
+  
+
+
+
+
 
 // CVE stats: graph visualization
-/// echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
-// echo "<div class=\"card\">\n";
-// echo "<div class=\"card-body\">\n";
 
-echo "<div id=\"cve_stats_chart\" style=\"width: 90vw; height: 30vh;\"></div>\n";
-
-// echo "</div>\n";
-// echo "</div>\n";
-// echo "</div>\n";
 
 tmpl_footer();
 
