@@ -54,6 +54,17 @@ echo "datasets: [{\n";
 echo "data: \n";
 
 // [86,114,106,106,107,111,133,221,783,2478],
+echo "[";
+$sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
+$res_cve = mysqli_query($dbconn, $sql_cve);
+while($arr_cve = mysqli_fetch_assoc($res_cve))
+{
+    $day = $arr_cve["date"];
+    $a_value = $arr_cve["a_value"];
+    $b_value = $arr_cve["b_value"];
+    echo "$a_value,";
+}
+echo "],\n";
 
 echo "label: \"All CVE\",\n";
 echo "borderColor: \"#3e95cd\",\n";
@@ -62,6 +73,17 @@ echo "}, {\n";
 echo "data:\n";
 
 // [282,350,411,502,635,809,947,1402,3700,5267],
+echo "[";
+$sql_cve = "SELECT * FROM `cve_stats` WHERE `name` = 'CVE per Day' ORDER BY id ASC LIMIT 0,28";
+$res_cve = mysqli_query($dbconn, $sql_cve);
+while($arr_cve = mysqli_fetch_assoc($res_cve))
+{
+    $day = $arr_cve["date"];
+    $a_value = $arr_cve["a_value"];
+    $b_value = $arr_cve["b_value"];
+    echo "$b_value,";
+}
+echo "],\n";
 
 echo "label: \"CVSS > 9\",\n";
 echo "borderColor: \"#8e5ea2\",\n";
