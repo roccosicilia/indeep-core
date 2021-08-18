@@ -71,4 +71,16 @@ for cve in lastcve:
         # print(capec_list["capec"])
         print("# There are {} CAPEC".format(len(capec_list["capec"])))
         for capec in capec_list["capec"]:
-            print("# {}".format(capec["name"]))
+            # print("# {}".format(capec["name"]))
+            # verify if capec is present
+            sql_check_capec = "SELECT COUNT(*) FROM `cve_capec` WHERE `cve_id` = '{}' AND `name` = '{}' ORDER BY `id`".format(cve["id"], capec["name"])
+            cursor.execute(sql_check_capec)
+            num_capec = cursor.fetchone()
+
+            if num_capec[0] == 0:
+                sql_add_capec = "INSERT INTO `cve_capec` (`cve_id`, `name`, `prerequisites`, `summary`, `solutions`) VALUES ('{}', '{}', '{}', '{}', '{}')".format(cve["id"], capec["name"], capec["prerequisites"], capec["summary"], capec["solutions"])
+                cursor.execute(sql_add_capec)
+                connection.commit()
+                print("# Add CAPEC '{}'".format(capec["name"]))
+            else:
+                print("# CAPEC Skipped")
