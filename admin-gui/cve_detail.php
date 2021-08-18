@@ -175,7 +175,7 @@ switch ($mode)
         // save query
         $sql_analysis = "UPDATE `cve` SET `analysis` = '$cve_analysis', `ack_date` = '$ack_date', `ack_user` = '$ack_user' WHERE `id` = '$id'";
         $res_analysis = mysqli_query($dbconn, $sql_analysis);
-        header("location: ./cve_details.php?mode=view&id=$cve_id");
+        header("location: ./cve_detail.php?mode=view&id=$cve_id");
 
         break;
 
