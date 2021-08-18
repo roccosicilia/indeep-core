@@ -38,7 +38,7 @@ echo "<tbody>\n";
 if (isset($_GET["cvss"])) { $cvss_limit = addslashes(stripslashes($_GET["cvss"])); }
 else { $cvss_limit = 9; }
 
-$sql = "SELECT * FROM `cve` WHERE `cvss` >= '" . $cvss_limit . "' AND `asread` IS NULL ORDER BY `id` DESC LIMIT 0, 10";
+$sql = "SELECT * FROM `cve` WHERE `cvss` >= '" . $cvss_limit . "' AND `asread` IS NULL AND `cvss` != 'None' ORDER BY `id` DESC LIMIT 0, 10";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
