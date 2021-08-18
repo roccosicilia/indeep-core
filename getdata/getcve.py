@@ -66,6 +66,7 @@ for cve in lastcve:
     capec_list = json.loads(response_capec.read())
 
     if capec_list.get('capec') is None:
-        print("No CAPEC")
+        print("# No CAPEC")
     else:
-        print(capec_list["capec"])
+        # print(capec_list["capec"])
+        print("# There are {} CAPEC".format(len(capec_list["capec"])))
