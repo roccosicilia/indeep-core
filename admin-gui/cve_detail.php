@@ -24,7 +24,7 @@ switch ($mode)
     case "view":
 
         $cveid = addslashes(stripslashes($_GET["id"]));
-        $sql = "SELECT * FROM `cve` WHERE `cve_id` = '" . $cveid . "'";
+        $sql = "SELECT * FROM `cve` WHERE `cve_id` = '" . $cveid . "' ORDER BY `id` DESC";
         $res = mysqli_query($dbconn, $sql);
         $arr = mysqli_fetch_assoc($res);
 
