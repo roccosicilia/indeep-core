@@ -135,7 +135,7 @@ switch ($mode)
             $summary = str_replace(". ", ".<br />", $arr_capec["summary"]);
             $solutions = str_replace(". ", ".<br />", $arr_capec["solutions"]);
 
-            echo "<p><b>" . $arr_capec["name"] . "</b></p>";
+            echo "<p><b>" . $arr_capec[0]["name"] . "</b></p>";
             echo "<p>[Prerequisites] " . $prerequisites . "</p>";
             echo "<p>[Summary] " . $summary . "</p>";
             echo "<p>[Solution] " . $solutions . "</p>";
