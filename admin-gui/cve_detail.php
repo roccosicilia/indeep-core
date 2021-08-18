@@ -122,7 +122,7 @@ switch ($mode)
                 // $summary = str_replace(". ", ".<br />", $arr_capec["summary"]);
                 // $solutions = str_replace(". ", ".<br />", $arr_capec["solutions"]);
 
-                echo ":: <a href=\"./capec_detail.php?id=" . $arr_capec["id"] . "\">" . $arr_capec["name"] . "</a>\n";
+                echo ":: <a href=\"./capec_detail.php?id=" . $arr_capec["id"] . "\">" . $arr_capec["name"] . "</a><br />\n";
             }
         }
         else
