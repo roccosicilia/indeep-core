@@ -104,11 +104,11 @@ switch ($mode)
         echo "</td>\n";
         echo "</tr>\n";
 
-        $sql_capec = "SELECT * FROM `cve_capec` WHERE `cve_id` = '' ORDER BY `id`";
+        $sql_capec = "SELECT * FROM `cve_capec` WHERE `cve_id` = '" . $cveid . "' ORDER BY `id`";
         $res_capec = mysqli_query($dbconn, $sql_capec);
         $num_capec = mysqli_num_rows($res_capec);
 
-        if ($num_capec > 0) { $view_capec = '<a href=\"cve_detail.php?mode=view&id=$cveid&capec=all\">[+] all</a>'; }
+        if ($num_capec > 0) { $view_capec = "<a href=\"cve_detail.php?mode=view&id=$cveid&capec=all\">[+] all</a>"; }
 
         echo "<tr>\n";
         echo "<td style=\"width: 20%\"> CAPEC ($num_capec) $view_capec </td>\n";
