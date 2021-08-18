@@ -123,11 +123,23 @@ switch ($mode)
                 $solutions = str_replace(". ", ".<br />", $arr_capec["solutions"]);
 
                 echo "<p><b>" . $arr_capec["name"] . "</b></p>";
-                echo "<p>Prerequisites: " . $prerequisites . "</p>";
-                echo "<p>Summary: " . $summary . "</p>";
-                echo "<p>Solution: " . $solutions . "</p>";
+                echo "<p>[Prerequisites] " . $prerequisites . "</p>";
+                echo "<p>[Summary] " . $summary . "</p>";
+                echo "<p>[Solution] " . $solutions . "</p>";
                 echo "<br />\n";
             }
+        }
+        else
+        {
+            $prerequisites = str_replace(". ", ".<br />", $arr_capec["prerequisites"]);
+            $summary = str_replace(". ", ".<br />", $arr_capec["summary"]);
+            $solutions = str_replace(". ", ".<br />", $arr_capec["solutions"]);
+
+            echo "<p><b>" . $arr_capec["name"] . "</b></p>";
+            echo "<p>[Prerequisites] " . $prerequisites . "</p>";
+            echo "<p>[Summary] " . $summary . "</p>";
+            echo "<p>[Solution] " . $solutions . "</p>";
+            echo "<br />\n";
         }
         
         echo "</td>\n";
