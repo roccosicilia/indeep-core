@@ -82,6 +82,6 @@ for cve in lastcve:
                 print("# DEBUG: {}".format(sql_add_capec))
                 cursor.execute(sql_add_capec)
                 connection.commit()
-                print("# Add CAPEC '{}'".format(capec["name"]))
+                print("# Add CAPEC '{}'".format(capec["name"].encode('utf-8').strip()))
             else:
                 print("# CAPEC Skipped")
