@@ -59,7 +59,7 @@ while ($arr = mysqli_fetch_assoc($res))
     }
 
     echo "<tr>\n";
-    echo "<td style=\"width: 20%\"> <a href=\"./cve_detail.php?mode=view&id=" . $arr["id"] . "\">" . $arr["cve_id"] . "</a> </td>\n";
+    echo "<td style=\"width: 20%\"> <a href=\"./cve_detail.php?mode=view&id=" . $arr["cve_id"] . "\">" . $arr["cve_id"] . "</a> </td>\n";
     echo "<td style=\"width: 20%\"> " . $arr["date_published"] . " </td>\n"; 
     echo "<td style=\"width: 20%\"> " . $arr["date_modified"] . " </td>\n";
     echo "<td style=\"width: 10%; color: $color\"> <b>" . $arr["cvss"] . "</b> </td>\n";

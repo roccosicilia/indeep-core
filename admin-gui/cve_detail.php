@@ -23,8 +23,8 @@ switch ($mode)
 
     case "view":
 
-        $rid = addslashes(stripslashes($_GET["id"]));
-        $sql = "SELECT * FROM `cve` WHERE `id` = '" . $rid . "'";
+        $cveid = addslashes(stripslashes($_GET["id"]));
+        $sql = "SELECT * FROM `cve` WHERE `cve_id` = '" . $cveid . "'";
         $res = mysqli_query($dbconn, $sql);
         $arr = mysqli_fetch_assoc($res);
 
@@ -76,7 +76,7 @@ switch ($mode)
         echo "<tr>\n";
         echo "<td style=\"width: 20%\"> CPE(s) </td>\n";
         echo "<td><select class=\"form-control form-control-lg\" id=\"cpe_list\">\n";
-        for ($i=0; $i<=count($cpe_list); $i++)
+        for ($i=0; $i<count($cpe_list); $i++)
         {
             echo "<option>" . $cpe_list[$i] . "</option>\n";
         }
@@ -87,6 +87,20 @@ switch ($mode)
         echo "<td style=\"width: 20%\"> Description </td>\n";
         echo "<td> " . $arr["description"] . " </td>\n";
         echo "</tr>\n";
+
+        echo "<form action=\"\" method=\"POST\">\n";
+        echo "<input type=\"hidden\" name=\"cve_id\" value=\"$cveid\" />\n";
+
+        echo "<tr>\n";
+        echo "<td style=\"width: 20%\"> Analysis </td>\n";
+        echo "<td> <textarea name=\"cve_analysis\"></textarea> </td>\n";
+        echo "</tr>\n";
+
+        echo "<tr>\n";
+        echo "<td style=\"width: 20%\">  </td>\n";
+        echo "<td> <input type=\"submit\" value=\"Ack and Save\" class=\"btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn\"> </td>\n";
+        echo "</tr>\n";
+        echo "</form>\n";
 
         echo "</tbody>\n";
         echo "</table>\n";
