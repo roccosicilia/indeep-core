@@ -158,7 +158,7 @@ switch ($mode)
         echo "</div>\n";
         break;
 
-    case "edit":
+    case "save":
 
         // save analysis
         $cve_id = addslashes(stripslashes($_POST["cve_id"]));
