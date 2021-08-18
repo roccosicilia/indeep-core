@@ -93,7 +93,7 @@ switch ($mode)
 
         echo "<tr>\n";
         echo "<td style=\"width: 20%\"> Analysis </td>\n";
-        echo "<td> <textarea name=\"cve_analysis\"></textarea> </td>\n";
+        echo "<td> <textarea width=\"100%\" name=\"cve_analysis\" class=\"btn btn-light me-2\"></textarea> </td>\n";
         echo "</tr>\n";
 
         echo "<tr>\n";
