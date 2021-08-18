@@ -74,6 +74,16 @@ switch ($mode)
         echo "</tr>\n";
 
         echo "<tr>\n";
+        echo "<td style=\"width: 20%\"> CPE(s) </td>\n";
+        echo "<td><textarea class=\"form-control\" id=\"cpe_list\" rows=\"4\">\n";
+        for ($i=0; $i<=count($cpe_list); $i++)
+        {
+            echo "$cpe_list \n";
+        }
+        echo "</textarea></td>\n";
+        echo "</tr>\n";
+
+        echo "<tr>\n";
         echo "<td style=\"width: 20%\"> Description </td>\n";
         echo "<td> " . $arr["description"] . " </td>\n";
         echo "</tr>\n";
