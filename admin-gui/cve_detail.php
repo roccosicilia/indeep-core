@@ -89,7 +89,7 @@ switch ($mode)
         echo "</tr>\n";
 
         echo "<tr>\n";
-        echo "<td style=\"width: 20%\"> Description </td>\n";
+        echo "<td style=\"width: 20%\"> References </td>\n";
         echo "<td> " . $arr["cve_references"] . " </td>\n";
         echo "</tr>\n";
 
