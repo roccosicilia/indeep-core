@@ -75,12 +75,12 @@ switch ($mode)
 
         echo "<tr>\n";
         echo "<td style=\"width: 20%\"> CPE(s) </td>\n";
-        echo "<td><textarea class=\"form-control\" id=\"cpe_list\" rows=\"4\">\n";
+        echo "<td><select class=\"form-control form-control-lg\" id=\"cpe_list\">\n";
         for ($i=0; $i<=count($cpe_list); $i++)
         {
-            echo $cpe_list[$i]." \n";
+            echo "<option>" . $cpe_list[$i] . "</option>\n";
         }
-        echo "</textarea></td>\n";
+        echo "</select></td>\n";
         echo "</tr>\n";
 
         echo "<tr>\n";
