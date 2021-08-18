@@ -113,7 +113,7 @@ switch ($mode)
         echo "</tr>\n";
 
         echo "<tr>\n";
-        echo "<td style=\"width: 20%\">  </td>\n";
+        echo "<td style=\"width: 20%\"><button type=\"button\" class=\"btn btn-light btn-rounded btn-fw\"><a href=\"./cve_mngm.php\"> &lt;&lt; Back </<a></button></td>\n";
         echo "<td><input type=\"submit\" value=\"Ack and Save\" class=\"btn btn-light me-2\" /></td>\n";
         echo "</tr>\n";
         echo "</form>\n";
