@@ -83,9 +83,10 @@ switch ($mode)
         echo "</select></td>\n";
         echo "</tr>\n";
 
+        $summary = str_replace(".", ".<br />");
         echo "<tr>\n";
-        echo "<td style=\"width: 20%\"> Description </td>\n";
-        echo "<td> " . $arr["description"] . " </td>\n";
+        echo "<td style=\"width: 20%\"> Summary </td>\n";
+        echo "<td> " . $summary . " </td>\n";
         echo "</tr>\n";
 
         echo "<tr>\n";
