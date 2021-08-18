@@ -70,3 +70,5 @@ for cve in lastcve:
     else:
         # print(capec_list["capec"])
         print("# There are {} CAPEC".format(len(capec_list["capec"])))
+        for capec in capec_list["capec"]:
+            print("# {}".format(capec))
