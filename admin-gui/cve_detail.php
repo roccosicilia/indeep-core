@@ -131,7 +131,7 @@ switch ($mode)
         echo "</td>\n";
         echo "</tr>\n";
 
-        echo "<form action=\"\" method=\"POST\">\n";
+        echo "<form action=\"./cve_detail.php?mode=save\" method=\"POST\">\n";
         echo "<input type=\"hidden\" name=\"cve_id\" value=\"$cveid\" />\n";
 
         if ($arr["analysis"] != null)
@@ -161,6 +161,14 @@ switch ($mode)
     case "edit":
 
         // save analysis
+        $cve_id = addslashes(stripslashes($_POST["cve_id"]));
+        $ack_date = date("Y-m-d");
+        $cve_analysis = addslashes(stripslashes($_POST["cve_analysis"]));
+        $cve_analysis = str_replace("\r\n", "<br />", $cve_analysis);
+        // debug print
+        echo "$cve_id<br />\n";
+        echo "$ack_date<br />\n";
+        echo "$cve_analysis<br />\n";
         break;
 
 }
