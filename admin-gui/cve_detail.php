@@ -74,7 +74,7 @@ switch ($mode)
         echo "</tr>\n";
 
         echo "<tr>\n";
-        echo "<td style=\"width: 20%\"> CPE(s) </td>\n";
+        echo "<td style=\"width: 20%\"> CPE </td>\n";
         echo "<td><select class=\"form-control form-control-lg\" id=\"cpe_list\">\n";
         for ($i=0; $i<count($cpe_list); $i++)
         {
@@ -101,6 +101,30 @@ switch ($mode)
         {
             echo "<a href=\"".$reference[$i]."\" target=\"_blank\">".$reference[$i]."</a><br />";
         }
+        echo "</td>\n";
+        echo "</tr>\n";
+
+        $sql_capec = "SELECT * FROM `cve_capec` WHERE `cve_id` = '' ORDER BY `id`";
+        $res_capec = mysqli_query($dbconn, $sql_capec);
+        $num_capec = mysqli_num_rows($res_capec);
+
+        if ($num_capec > 0) { $view_capec = '<a href=\"cve_detail.php?mode=view&id=$cveid&capec=all\">[+] all</a>'; }
+
+        echo "<tr>\n";
+        echo "<td style=\"width: 20%\"> CAPEC ($num_capec) $view_capec </td>\n";
+        echo "<td>\n";
+
+        if (($num_capec > 0) AND ($_GET["capec"] = 'all'))
+        {
+            while($arr_capec = mysqli_fetch_assoc($res_capec))
+            {
+                echo "<p>" . $arr_capec["name"] . "</b></p>";
+                echo "<p>Prerequisites: " . $arr_capec["prerequisites"] . "</p>";
+                echo "<p>Summary: " . $arr_capec["summary"] . "</p>";
+                echo "<p>Solution: " . $arr_capec["solutions"] . "</p>";
+            }
+        }
+        
         echo "</td>\n";
         echo "</tr>\n";
 
