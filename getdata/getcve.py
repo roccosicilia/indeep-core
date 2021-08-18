@@ -59,3 +59,12 @@ for cve in lastcve:
         print("# Add CVE in DB.")
     else:
         print("# CVE skipped")
+    
+    # get CAPEC data
+    capec_url = 'https://cve.circl.lu/api/cve/' + cve["id"]
+    response_capec = urlopen(capec_url)
+    capec_list = json.loads(response_capec.read())
+
+    for capec in capec_list:
+        print("# CAPEC {}:".format(capec["id"]))
+
