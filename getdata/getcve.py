@@ -44,7 +44,7 @@ for cve in lastcve:
     cursor.execute(sql_checkcve)
     num_items = cursor.fetchone()
 
-    references = json.loads(cve["references"])
+    references = json.dumps(cve["references"])
 
     print("# [DEBUG] CVE in DB? {0}".format(num_items[0]))
     print("# References: ")
