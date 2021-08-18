@@ -73,12 +73,12 @@ for cve in lastcve:
         for capec in capec_list["capec"]:
             # print("# {}".format(capec["name"]))
             # verify if capec is present
-            sql_check_capec = "SELECT COUNT(*) FROM `cve_capec` WHERE `cve_id` = '{}' AND `name` = '{}' ORDER BY `id`".format(cve["id"], capec["name"].encode('utf-8').strip())
+            sql_check_capec = "SELECT COUNT(*) FROM `cve_capec` WHERE `cve_id` = '{}' AND `name` = '{}' ORDER BY `id`".format(cve["id"], capec["name"].encode('utf-8').strip().replace("'", "-"))
             cursor.execute(sql_check_capec)
             num_capec = cursor.fetchone()
 
             if num_capec[0] == 0:
-                sql_add_capec = "INSERT INTO `cve_capec` (`cve_id`, `name`, `prerequisites`, `summary`, `solutions`) VALUES ('{}', '{}', '{}', '{}', '{}')".format(cve["id"], capec["name"].encode('utf-8').strip(), capec["prerequisites"].encode('utf-8').strip(), capec["summary"].encode('utf-8').strip(), capec["solutions"].encode('utf-8').strip())
+                sql_add_capec = "INSERT INTO `cve_capec` (`cve_id`, `name`, `prerequisites`, `summary`, `solutions`) VALUES ('{}', '{}', '{}', '{}', '{}')".format(cve["id"], capec["name"].encode('utf-8').strip().replace("'", "-"), capec["prerequisites"].encode('utf-8').strip().replace("'", "-"), capec["summary"].encode('utf-8').strip().replace("'", "-"), capec["solutions"].encode('utf-8').strip().replace("'", "-"))
                 print("# DEBUG: {}".format(sql_add_capec))
                 cursor.execute(sql_add_capec)
                 connection.commit()
