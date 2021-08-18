@@ -89,9 +89,10 @@ switch ($mode)
         echo "<td> " . $summary . " </td>\n";
         echo "</tr>\n";
 
+        $reference = str_replace("u'", "'", $arr["cve_references"]);
         echo "<tr>\n";
         echo "<td style=\"width: 20%\"> References </td>\n";
-        echo "<td> " . $arr["cve_references"] . " </td>\n";
+        echo "<td> " . $reference . " </td>\n";
         echo "</tr>\n";
 
         echo "<form action=\"\" method=\"POST\">\n";
