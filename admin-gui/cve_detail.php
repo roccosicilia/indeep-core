@@ -98,7 +98,7 @@ switch ($mode)
 
         echo "<tr>\n";
         echo "<td style=\"width: 20%\">  </td>\n";
-        echo "<td> <input type=\"submit\" value=\"Ack and Save\" class=\"btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn\"> </td>\n";
+        echo "<td><input type=\"submit\" value=\"Ack and Save\" class=\"btn btn-light me-2\" /></td>\n";
         echo "</tr>\n";
         echo "</form>\n";
 
