@@ -65,6 +65,8 @@ for cve in lastcve:
     response_capec = urlopen(capec_url)
     capec_list = json.loads(response_capec.read())
 
-    if capec_list[0] != '':
-        print(capec_list[0])
+    if not capec_list:
+        print("No CAPEC")
+    else:
+        print(capec[0])
 
