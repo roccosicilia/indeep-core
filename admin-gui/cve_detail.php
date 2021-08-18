@@ -88,6 +88,11 @@ switch ($mode)
         echo "<td> " . $arr["description"] . " </td>\n";
         echo "</tr>\n";
 
+        echo "<tr>\n";
+        echo "<td style=\"width: 20%\"> Description </td>\n";
+        echo "<td> " . $arr["cve_references"] . " </td>\n";
+        echo "</tr>\n";
+
         echo "<form action=\"\" method=\"POST\">\n";
         echo "<input type=\"hidden\" name=\"cve_id\" value=\"$cveid\" />\n";
 
