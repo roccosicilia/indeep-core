@@ -20,7 +20,7 @@ tmpl_body();
 echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
 echo "<div class=\"card\">\n";
 echo "<div class=\"card-body\">\n";
-echo "<h4 class=\"card-title\">Last unmanaged CVE (CVSS &gt= 9) </h4>\n";
+echo "<h4 class=\"card-title\">Last unmanaged CVE (CVSS &gt= <a href=\"./cve_mngm.php?cvss=9\">9</a> | <a href=\"./cve_mngm.php?cvss=8\">8</a> | <a href=\"./cve_mngm.php?cvss=7\">7</a>) </h4>\n";
 echo "<div class=\"table-responsive\">\n";
 echo "<table class=\"table table-striped\">\n";
 
@@ -35,7 +35,10 @@ echo "</tr>\n";
 echo "</thead>\n";
 echo "<tbody>\n";
 
-$sql = "SELECT * FROM `cve` WHERE `cvss` >= 9 AND `asread` IS NULL ORDER BY `id` DESC LIMIT 0,5";
+if (isset($_GET["cvss"])) { $cvss_limit = addslashes(stripslashes($_GET["cvss"])); }
+else { $cvss_limit = 9; }
+
+$sql = "SELECT * FROM `cve` WHERE `cvss` >= '" . $cvss_limit . "' AND `asread` IS NULL ORDER BY `id` DESC LIMIT 0, 10";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
