@@ -52,7 +52,7 @@ for cve in lastcve:
     print("# Summary: {}".format(summary))
 
     if num_items[0] == 0:
-        sql_addcve = "INSERT INTO cve (cve_id, cvss, date_modified, date_published, cpe_list, description, references) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', \"{5}\", \"{6}\")".format(cve["id"], cve["cvss"], cve["Modified"], cve["Published"], cpe_list, summary, cve["references"])
+        sql_addcve = "INSERT INTO cve (cve_id, cvss, date_modified, date_published, cpe_list, description, cve_references) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', \"{5}\", \"{6}\")".format(cve["id"], cve["cvss"], cve["Modified"], cve["Published"], cpe_list, summary, cve["references"])
         print ("# DEBUG: {}".format(sql_addcve))
         cursor.execute(sql_addcve)
         connection.commit()
