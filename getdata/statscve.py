@@ -23,7 +23,7 @@ else:
     today = date.today()
     check_date = today.strftime("%Y-%m-%d")
 
-sql_cve = "SELECT COUNT(*) FROM `cve` WHERE `date_modified` LIKE '{}%'".format(check_date)
+sql_cve = "SELECT COUNT(*) FROM `cve` WHERE `date_modified` LIKE '{}%' AND `cvss` != 'None'".format(check_date)
 cursor.execute(sql_cve)
 num_items = cursor.fetchone()
 num_cve = num_items[0]
@@ -32,7 +32,7 @@ print("##########")
 print("CVE in date {}: {}".format(check_date, num_cve))
 print("SQL: {}".format(sql_cve))
 
-sql_cve_overnine = "SELECT COUNT(*) FROM `cve` WHERE `date_modified` LIKE '{}%' AND `cvss` >= '9'".format(check_date)
+sql_cve_overnine = "SELECT COUNT(*) FROM `cve` WHERE `date_modified` LIKE '{}%' AND `cvss` >= '9' AND `cvss` != 'None'".format(check_date)
 cursor.execute(sql_cve_overnine)
 num_items = cursor.fetchone()
 num_cve_overnine = num_items[0]
