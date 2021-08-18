@@ -90,9 +90,18 @@ switch ($mode)
         echo "</tr>\n";
 
         $reference = str_replace("u'", "'", $arr["cve_references"]);
+        $reference = str_replace("'", "", $reference);
+        $reference = str_replace("[", "", $reference);
+        $reference = str_replace("]", "", $reference);
+        $reference = explore(",", $reference);
         echo "<tr>\n";
         echo "<td style=\"width: 20%\"> References </td>\n";
-        echo "<td> " . $reference . " </td>\n";
+        echo "<td>\n";
+        for ($i=0; $i<count($reference); $i++)
+        {
+            echo "<a href=\"".$reference[$i]."\" target=\"_blank\">".$reference[$i]."</a><br />";
+        }
+        echo "</td>\n";
         echo "</tr>\n";
 
         echo "<form action=\"\" method=\"POST\">\n";
