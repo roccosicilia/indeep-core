@@ -23,19 +23,22 @@ switch ($mode)
 
     case "view":
 
-        $cveid = addslashes(stripslashes($_GET["id"]));
-        $sql = "SELECT * FROM `cve` WHERE `id` = '" . $cveid . "'";
+        $rid = addslashes(stripslashes($_GET["id"]));
+        $sql = "SELECT * FROM `cve` WHERE `id` = '" . $rid . "'";
         $res = mysqli_query($dbconn, $sql);
         $arr = mysqli_fetch_assoc($res);
 
         $json = $arr["info"];
         $info = json_decode($json);
 
+        // debug
+        echo "<!-- get VCE data: $sql -->\n";
+
         // CVE datail table
         echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
         echo "<div class=\"card\">\n";
         echo "<div class=\"card-body\">\n";
-        echo "<h4 class=\"card-title\">CVE " . $arr["cve"] . "</h4>\n";
+        echo "<h4 class=\"card-title\">CVE " . $arr["cve_id"] . "</h4>\n";
         echo "<div class=\"table-responsive\">\n";
         echo "<table class=\"table table-striped\">\n";
 
