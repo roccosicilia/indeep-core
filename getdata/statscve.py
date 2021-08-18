@@ -27,11 +27,18 @@ sql_cve = "SELECT COUNT(*) FROM `cve` WHERE `date_modified` LIKE '{}%'".format(c
 cursor.execute(sql_cve)
 num_items = cursor.fetchone()
 num_cve = num_items[0]
+# DEBUG print
+print("##########")
+print("CVE in date {}: {}".format(check_date, num_cve))
+print("SQL: {}".format(sql_cve))
 
 sql_cve_overnine = "SELECT COUNT(*) FROM `cve` WHERE `date_modified` LIKE '{}%' AND `cvss` >= '9'".format(check_date)
 cursor.execute(sql_cve_overnine)
 num_items = cursor.fetchone()
 num_cve_overnine = num_items[0]
+print("##########")
+print("CVEo9 in date {}: {}".format(check_date, num_cve_overnine))
+print("SQL: {}".format(sql_cve_overnine))
 
 sql_cve_stat = "INSERT INTO `cve_stats` (`name`, `date`, `a_name`, `a_value`, `b_name`, `b_value`) VALUES ('{}', '{}', '{}', '{}', '{}', '{}')".format('CVE per Day', check_date, 'cve(s)', num_cve, 'overnine', num_cve_overnine)
 cursor.execute(sql_cve_stat)
