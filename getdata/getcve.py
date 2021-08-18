@@ -78,7 +78,7 @@ for cve in lastcve:
             num_capec = cursor.fetchone()
 
             if num_capec[0] == 0:
-                sql_add_capec = "INSERT INTO `cve_capec` (`cve_id`, `name`, `prerequisites`, `summary`, `solutions`) VALUES ('{}', '{}', '{}', '{}', '{}')".format(cve["id"], capec["name"], capec["prerequisites"], capec["summary"], capec["solutions"])
+                sql_add_capec = "INSERT INTO `cve_capec` (`cve_id`, `name`, `prerequisites`, `summary`, `solutions`) VALUES ('{}', '{}', '{}', '{}', '{}')".format(cve["id"], capec["name"].encode('utf-8').strip(), capec["prerequisites"].encode('utf-8').strip(), capec["summary"].encode('utf-8').strip(), capec["solutions"].encode('utf-8').strip())
                 cursor.execute(sql_add_capec)
                 connection.commit()
                 print("# Add CAPEC '{}'".format(capec["name"]))
