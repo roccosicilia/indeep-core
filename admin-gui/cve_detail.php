@@ -78,7 +78,7 @@ switch ($mode)
         echo "<td><textarea class=\"form-control\" id=\"cpe_list\" rows=\"4\">\n";
         for ($i=0; $i<=count($cpe_list); $i++)
         {
-            echo "$cpe_list \n";
+            echo $cpe_list[$i]." \n";
         }
         echo "</textarea></td>\n";
         echo "</tr>\n";
