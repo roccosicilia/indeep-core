@@ -38,7 +38,7 @@ switch ($mode)
         echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
         echo "<div class=\"card\">\n";
         echo "<div class=\"card-body\">\n";
-        echo "<h4 class=\"card-title\">CVE " . $arr["cve_id"] . "</h4>\n";
+        echo "<h4 class=\"card-title\">View " . $arr["cve_id"] . " details</h4>\n";
         echo "<div class=\"table-responsive\">\n";
         echo "<table class=\"table table-striped\">\n";
 
@@ -51,10 +51,10 @@ switch ($mode)
         echo "<tbody>\n";
 
         // define CVSS color
-        if ($arr["cvss"] >= 7) { $color = 'purple';}
-        if ($arr["cvss"] >= 8) { $color = 'orange';}
-        if ($arr["cvss"] >= 9) { $color = 'orangered';}
-        if ($arr["cvss"] >= 9.5) { $color = 'red';}
+        if (($arr["cvss"] >= 7)   AND ($arr["cvss"] != 'None')) { $color = 'purple';}
+        if (($arr["cvss"] >= 8)   AND ($arr["cvss"] != 'None')) { $color = 'orange';}
+        if (($arr["cvss"] >= 9)   AND ($arr["cvss"] != 'None')) { $color = 'orangered';}
+        if (($arr["cvss"] >= 9.5) AND ($arr["cvss"] != 'None')) { $color = 'red';}
 
         // define CPE
         if ($arr["cpe_list"] != '')
@@ -69,13 +69,13 @@ switch ($mode)
         }
 
         echo "<tr>\n";
-        echo "<td style=\"width: 20%\"> Publishing Data </td>\n";
-        echo "<td> " . $arr["data_published"] . " </td>\n";
+        echo "<td style=\"width: 20%\"> Publishing Date </td>\n";
+        echo "<td> " . $arr["date_published"] . " </td>\n";
         echo "</tr>\n";
 
         echo "<tr>\n";
         echo "<td style=\"width: 20%\"> Description </td>\n";
-        echo "<td> " . $info->{'Description'} . " </td>\n";
+        echo "<td> " . $arr["description"] . " </td>\n";
         echo "</tr>\n";
 
         echo "</tbody>\n";
