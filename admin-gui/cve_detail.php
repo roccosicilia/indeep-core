@@ -111,35 +111,23 @@ switch ($mode)
         if ($num_capec > 0) { $view_capec = "<a href=\"cve_detail.php?mode=view&id=$cveid&capec=all\">[+] all</a>"; }
 
         echo "<tr>\n";
-        echo "<td style=\"width: 20%\"> CAPEC ($num_capec) $view_capec </td>\n";
+        echo "<td style=\"width: 20%\"> CAPEC ($num_capec) </td>\n";
         echo "<td>\n";
 
-        if (($num_capec > 0) AND ($_GET["capec"] == 'all'))
+        if ($num_capec > 0)
         {
             while($arr_capec = mysqli_fetch_assoc($res_capec))
             {
-                $prerequisites = str_replace(". ", ".<br />", $arr_capec["prerequisites"]);
-                $summary = str_replace(". ", ".<br />", $arr_capec["summary"]);
-                $solutions = str_replace(". ", ".<br />", $arr_capec["solutions"]);
+                // $prerequisites = str_replace(". ", ".<br />", $arr_capec["prerequisites"]);
+                // $summary = str_replace(". ", ".<br />", $arr_capec["summary"]);
+                // $solutions = str_replace(". ", ".<br />", $arr_capec["solutions"]);
 
-                echo "<p><b>" . $arr_capec["name"] . "</b></p>";
-                echo "<p>[Prerequisites] " . $prerequisites . "</p>";
-                echo "<p>[Summary] " . $summary . "</p>";
-                echo "<p>[Solution] " . $solutions . "</p>";
-                echo "<br />\n";
+                echo ":: <a href=\"./capec_detail.php?id=" . $arr_capec["id"] . ">" . $arr_capec["name"] . "</a>\n";
             }
         }
         else
         {
-            $prerequisites = str_replace(". ", ".<br />", $arr_capec["prerequisites"]);
-            $summary = str_replace(". ", ".<br />", $arr_capec["summary"]);
-            $solutions = str_replace(". ", ".<br />", $arr_capec["solutions"]);
-
-            echo "<p><b>" . $arr_capec[0]["name"] . "</b></p>";
-            echo "<p>[Prerequisites] " . $prerequisites . "</p>";
-            echo "<p>[Summary] " . $summary . "</p>";
-            echo "<p>[Solution] " . $solutions . "</p>";
-            echo "<br />\n";
+            echo "None\n";
         }
         
         echo "</td>\n";
