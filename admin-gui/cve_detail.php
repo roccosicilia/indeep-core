@@ -132,7 +132,7 @@ switch ($mode)
         echo "</tr>\n";
 
         echo "<form action=\"./cve_detail.php?mode=save\" method=\"POST\">\n";
-        echo "<input type=\"hidden\" name=\"cve_id\" value=\"$cveid\" />\n";
+        echo "<input type=\"hidden\" name=\"id\" value=\"" . $arr["id"] . "\" />\n";
 
         if ($arr["analysis"] != null)
         {
@@ -161,14 +161,17 @@ switch ($mode)
     case "save":
 
         // save analysis
-        $cve_id = addslashes(stripslashes($_POST["cve_id"]));
+        $id = addslashes(stripslashes($_POST["id"]));
         $ack_date = date("Y-m-d");
+        $ack_user = $_SESSION["username"];
         $cve_analysis = addslashes(stripslashes($_POST["cve_analysis"]));
         $cve_analysis = str_replace("\r\n", "<br />", $cve_analysis);
         // debug print
-        echo "$cve_id<br />\n";
+        echo "$id<br />\n";
         echo "$ack_date<br />\n";
         echo "$cve_analysis<br />\n";
+        // save query
+        $sql_analysis = "UPDATE `cve` SET `analysis` = '$cve_analysis', `ack_date` = '$ack_date', `ack_user` = '$ack_user' WHERE `id` = '$id'";
         break;
 
 }
