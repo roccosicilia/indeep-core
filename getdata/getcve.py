@@ -48,7 +48,7 @@ for cve in lastcve:
     print("# References: ")
     for reference in cve["references"]:
         print("# {}".format(reference))
-    print("# Summary: {}".format(cve["summary"]).encode('utf-8').strip())
+    print("# Summary: {}".format(cve["summary"].encode('utf-8').strip()))
 
     if num_items[0] == 0:
         sql_addcve = "INSERT INTO cve (cve_id, cvss, date_modified, date_published, cpe_list, description, references) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')".format(cve["id"], cve["cvss"], cve["Modified"], cve["Published"], cpe_list, cve["summary"], cve["references"])
