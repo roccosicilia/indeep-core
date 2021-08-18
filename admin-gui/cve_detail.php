@@ -93,7 +93,7 @@ switch ($mode)
         $reference = str_replace("'", "", $reference);
         $reference = str_replace("[", "", $reference);
         $reference = str_replace("]", "", $reference);
-        $reference = explore(",", $reference);
+        $reference = explode(",", $reference);
         echo "<tr>\n";
         echo "<td style=\"width: 20%\"> References </td>\n";
         echo "<td>\n";
