@@ -38,7 +38,7 @@ echo "<tbody>\n";
 if (isset($_GET["cvss"])) { $cvss_limit = addslashes(stripslashes($_GET["cvss"])); }
 else { $cvss_limit = 8; }
 
-$sql = "SELECT * FROM `cve` WHERE `cvss` >= '" . $cvss_limit . "' AND `asread` IS NULL AND `cvss` != 'None' ORDER BY `id` DESC LIMIT 0, 10";
+$sql = "SELECT * FROM `cve` WHERE `cvss` >= '" . $cvss_limit . "' AND `ack_date` IS NULL AND `cvss` != 'None' ORDER BY `id` DESC LIMIT 0, 10";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
@@ -96,7 +96,7 @@ echo "</tr>\n";
 echo "</thead>\n";
 echo "<tbody>\n";
 
-$sql = "SELECT * FROM `cve` WHERE `asread` IS NOT NULL ORDER BY `id` DESC LIMIT 0,5";
+$sql = "SELECT * FROM `cve` WHERE `ack_date` IS NOT NULL ORDER BY `id` DESC LIMIT 0,10";
 $res = mysqli_query($dbconn, $sql);
 
 while ($arr = mysqli_fetch_assoc($res))
@@ -119,9 +119,6 @@ while ($arr = mysqli_fetch_assoc($res))
         $cpe_output = 'Null';
     }
 
-    $json = $arr["info"];
-    $info = json_decode($json);
-
     echo "<tr>\n";
     echo "<td style=\"width: 20%\"> <a href=\"./cve_detail.php?mode=view&id=" . $arr["id"] . "\">" . $arr["cve_id"] . "</a> </td>\n";
     echo "<td style=\"width: 20%\"> " . $arr["date_published"] . " </td>\n"; 
@@ -130,7 +127,7 @@ while ($arr = mysqli_fetch_assoc($res))
     echo "<td> <i>$cpe_output</i> </td>\n";
     echo "</tr>\n";
     echo "<tr>\n";
-    echo "<td collspan=\"5\"> " . $info->{'Description'} . " </td>\n";
+    echo "<td collspan=\"5\"> " . $arr["analysis"] . " </td>\n";
     echo "</tr>\n";
 }
 
