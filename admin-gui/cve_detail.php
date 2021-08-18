@@ -114,14 +114,19 @@ switch ($mode)
         echo "<td style=\"width: 20%\"> CAPEC ($num_capec) $view_capec </td>\n";
         echo "<td>\n";
 
-        if (($num_capec > 0) AND ($_GET["capec"] = 'all'))
+        if (($num_capec > 0) AND ($_GET["capec"] == 'all'))
         {
             while($arr_capec = mysqli_fetch_assoc($res_capec))
             {
-                echo "<p>" . $arr_capec["name"] . "</b></p>";
-                echo "<p>Prerequisites: " . $arr_capec["prerequisites"] . "</p>";
-                echo "<p>Summary: " . $arr_capec["summary"] . "</p>";
-                echo "<p>Solution: " . $arr_capec["solutions"] . "</p>";
+                $prerequisites = str_replace(". ", ".<br />", $arr_capec["prerequisites"]);
+                $summary = str_replace(". ", ".<br />", $arr_capec["summary"]);
+                $solutions = str_replace(". ", ".<br />", $arr_capec["solutions"]);
+
+                echo "<p><b>" . $arr_capec["name"] . "</b></p>";
+                echo "<p>Prerequisites: " . $prerequisites . "</p>";
+                echo "<p>Summary: " . $summary . "</p>";
+                echo "<p>Solution: " . $solutions . "</p>";
+                echo "<br />\n";
             }
         }
         
