@@ -68,5 +68,5 @@ for cve in lastcve:
     if not capec_list:
         print("No CAPEC")
     else:
-        print(capec[0])
+        print(capec_list[0])
 
