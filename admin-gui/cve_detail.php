@@ -38,7 +38,7 @@ switch ($mode)
         echo "<div class=\"col-lg-12 grid-margin stretch-card\">\n";
         echo "<div class=\"card\">\n";
         echo "<div class=\"card-body\">\n";
-        echo "<h4 class=\"card-title\">View " . $arr["cve_id"] . " details</h4>\n";
+        echo "<h4 class=\"card-title\"> " . $arr["cve_id"] . " // Score " . $arr["cvss"] . "</h4>\n";
         echo "<div class=\"table-responsive\">\n";
         echo "<table class=\"table table-striped\">\n";
 
@@ -69,8 +69,8 @@ switch ($mode)
         }
 
         echo "<tr>\n";
-        echo "<td style=\"width: 20%\"> Publishing Date </td>\n";
-        echo "<td> " . $arr["date_published"] . " </td>\n";
+        echo "<td style=\"width: 20%\"> Date </td>\n";
+        echo "<td> Publishing: " . $arr["date_published"] . " // Last update: " . $arr["date_modified"] . " </td>\n";
         echo "</tr>\n";
 
         echo "<tr>\n";
