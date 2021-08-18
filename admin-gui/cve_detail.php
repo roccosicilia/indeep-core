@@ -99,7 +99,7 @@ switch ($mode)
         echo "<td>\n";
         for ($i=0; $i<count($reference); $i++)
         {
-            echo "<a href=\"".$reference[$i]."\" target=\"_blank\">".$reference[$i]."</a><br />";
+            echo ":: <a href=\"".$reference[$i]."\" target=\"_blank\">".$reference[$i]."</a><br />\n";
         }
         echo "</td>\n";
         echo "</tr>\n";
@@ -107,8 +107,6 @@ switch ($mode)
         $sql_capec = "SELECT * FROM `cve_capec` WHERE `cve_id` = '" . $cveid . "' ORDER BY `id`";
         $res_capec = mysqli_query($dbconn, $sql_capec);
         $num_capec = mysqli_num_rows($res_capec);
-
-        if ($num_capec > 0) { $view_capec = "<a href=\"cve_detail.php?mode=view&id=$cveid&capec=all\">[+] all</a>"; }
 
         echo "<tr>\n";
         echo "<td style=\"width: 20%\"> CAPEC ($num_capec) </td>\n";
@@ -136,9 +134,14 @@ switch ($mode)
         echo "<form action=\"\" method=\"POST\">\n";
         echo "<input type=\"hidden\" name=\"cve_id\" value=\"$cveid\" />\n";
 
+        if ($arr["analysis"] != null)
+        {
+            $analysis = str_replace("<br />", "\r\n", $arr["analysis"]);
+        }
+
         echo "<tr>\n";
         echo "<td style=\"width: 20%\"> Analysis </td>\n";
-        echo "<td> <textarea name=\"cve_analysis\" style=\"width: 100%; border: 1px solid #dee2e6; font-weight: 400; font-size: 0.875rem; border-radius: 4px; height: 5rem;\"></textarea> </td>\n";
+        echo "<td> <textarea name=\"cve_analysis\" style=\"width: 100%; border: 1px solid #dee2e6; font-weight: 400; font-size: 0.875rem; border-radius: 4px; height: 5rem;\">$analysis</textarea> </td>\n";
         echo "</tr>\n";
 
         echo "<tr>\n";
@@ -153,6 +156,11 @@ switch ($mode)
         echo "</div>\n";
         echo "</div>\n";
         echo "</div>\n";
+        break;
+
+    case "edit":
+
+        // save analysis
         break;
 
 }
