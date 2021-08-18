@@ -65,6 +65,5 @@ for cve in lastcve:
     response_capec = urlopen(capec_url)
     capec_list = json.loads(response_capec.read())
 
-    for capec in capec_list:
-        print("# CAPEC {}:".format(capec["id"]))
+    print(capec_list[0])
 
