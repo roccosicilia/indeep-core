@@ -127,7 +127,7 @@ while ($arr = mysqli_fetch_assoc($res))
     echo "<td> <i>$cpe_output</i> </td>\n";
     echo "</tr>\n";
     echo "<tr>\n";
-    echo "<td collspan=\"5\"> " . $arr["analysis"] . " </td>\n";
+    echo "<td colspan=\"5\"> " . $arr["analysis"] . " </td>\n";
     echo "</tr>\n";
 }
 
